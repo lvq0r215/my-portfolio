@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>カフェ aeta — まつだかおり Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="「ひとりでも、誰かとでも、aetaはいつもここに。」Web上でもカフェにいるような「体験」ができるようなWebサイトを作りました。忙しい日常から少し離れ、大自然の中で深呼吸しているような感覚になってもらうため、写真や余白、必要最低限の情報にこだわってデザインしました。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?ver=20260322" />
+  </head>
+  <body>
+    <!-- ── Header ── -->
+    <header id="header">
+      <h1><a href="index.html" class="logo">まつだかおり</a></h1>
+      <nav>
+        <a href="index.html#works">つくったもの<span class="nav-count">(6)</span></a>
+        <a href="about.html">わたしについて</a>
+        <a href="index.html#contact" class="btn-contact">つながる</a>
+      </nav>
+      <div class="hamburger" id="hamburger" aria-label="メニュー" role="button" tabindex="0" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html#works" class="nav-mobile-link">つくったもの</a>
+      <a href="about.html" class="nav-mobile-link">わたしについて</a>
+      <a href="index.html#contact" class="nav-mobile-link btn-contact-mobile">つながる</a>
+    </div>
+
+    <!-- ── Hero / MV ── -->
+    <section class="work-hero" id="workHero">
+      <div class="work-hero-media">
+        <div class="work-hero-img-placeholder work-hero-img-placeholder--aeta">
+          <video
+            src="mv/aeta.mp4"
+            loop
+            muted
+            autoplay
+            playsinline
+            preload="none"
+            class="hero-mv"
+            aria-label="カフェaetaのサイトスクロール動画"
+          ></video>
+        </div>
+      </div>
+      <div class="work-hero-caption">
+        <span class="work-category-badge">Webサイト</span>
+        <h1 class="work-hero-title">カフェ aeta</h1>
+      </div>
+    </section>
+
+    <!-- ── Main Content ── -->
+    <main class="work-main">
+      <!-- ── Overview ── -->
+      <section class="work-section reveal" id="overview">
+        <div class="work-section-label">Overview</div>
+        <h2 class="work-section-title">概要</h2>
+        <p class="work-overview-text">
+          鹿児島県霧島市にあるカフェaeta 様（架空）の公式サイトを制作しました。<br />「ひとりでも、誰かとでも、aetaはいつもここに。」というメインコピーに沿って、Web上でもカフェにいるような「体験」ができるような情報設計を意識しました。忙しい日常から少し離れ、大自然の中で深呼吸しているような感覚になってもらうため、写真や余白、必要最低限の情報にこだわってデザインしました。心地よさ表現するために、ロゴのフォントやカーニングにも力を入れています。架空サイトのため、情報に一貫性を持たせるよう、ペルソナとカスタマージャーニーマップを作成してからデザインに移りました。
+        </p>
+
+        <div class="work-meta-grid">
+          <div class="work-meta-item">
+            <div class="work-meta-label">クライアント</div>
+            <div class="work-meta-value">カフェ aeta 様（架空）</div>
+          </div>
+          <div class="work-meta-item">
+            <div class="work-meta-label">制作範囲</div>
+            <div class="work-meta-value">企画 / デザイン / コーディング</div>
+          </div>
+          <div class="work-meta-item">
+            <div class="work-meta-label">制作期間</div>
+            <div class="work-meta-value">
+              企画・ワイヤーフレーム：1週間<br />デザイン：2週間<br />コーディング：1週間
+            </div>
+          </div>
+          <div class="work-meta-item">
+            <div class="work-meta-label">使用ツール</div>
+            <div class="work-meta-value">Figma / VS Code / chatGPT / Gemini</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Full Image ── -->
+      <div class="work-full-img reveal">
+        <div class="work-img-placeholder work-img-main">
+          <img src="img/aeta-pc.jpg" alt="カフェaetaのパソコン版全体デザイン" />
+        </div>
+        <div class="work-img-caption">パソコン版 全体デザイン</div>
+      </div>
+
+      <!-- ── Challenge / Goal ── -->
+      <section class="work-section reveal">
+        <div class="work-dl-grid">
+          <div class="work-dl-block">
+            <dt class="work-dl-term">課題</dt>
+            <dd class="work-dl-desc">
+              <ul>
+                <li>SNSでの情報発信にとどまり、ブランドとしての世界観が伝わりにくいため、客足が伸び悩んでいる</li>
+                <li>メニューや営業情報が散在しており、ユーザーが必要な情報を見つけにくい</li>
+              </ul>
+            </dd>
+          </div>
+          <div class="work-dl-block">
+            <dt class="work-dl-term">目的</dt>
+            <dd class="work-dl-desc">
+              <ul>
+                <li>カフェの空気感や世界観をWeb上で体験できる公式サイトをつくる</li>
+                <li>メニュー・アクセス・営業情報を一元化し、来店促進につなげる</li>
+              </ul>
+            </dd>
+          </div>
+          <div class="work-dl-block">
+            <dt class="work-dl-term">ターゲット</dt>
+            <dd class="work-dl-desc">
+              <ul>
+                <li>鹿児島市内に住む20代〜40代の女性</li>
+                <li>「日常の小さな豊かさ」を大切にするライフスタイルを持つ人</li>
+                <li>忙しい日々を忘れたい、自然に癒されたいと思っている人</li>
+              </ul>
+            </dd>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Sub Images ── -->
+      <div class="work-image-row--aeta reveal">
+        <div class="work-img-block">
+          <div class="work-img-placeholder work-img-sub">
+            <img src="img/aeta-logo.webp" alt="カフェaetaのロゴ" />
+          </div>
+          <div class="work-img-caption">ロゴ</div>
+        </div>
+        <div class="work-img-block">
+          <div class="work-img-placeholder work-img-sub work-img-sub--alt">
+            <img src="img/aeta-schemes.webp" alt="カフェaetaの書体・色彩設計書" />
+          </div>
+          <div class="work-img-caption">書体・色彩設計書</div>
+        </div>
+      </div>
+
+      <!-- ── Design ── -->
+      <section class="work-section reveal">
+        <div class="work-section-label">Design</div>
+        <h2 class="work-section-title">デザイン設計</h2>
+        <p class="work-body-text">
+          自然の温かみのあるイメージと洗練された印象を同時に感じてもらえるよう、余白や行間は広めに取り、背景は生成色とモスグリーン、テキストはブラウン、書体はセリフ体を選びました。また、時間の流れや没入感を感じてもらうために、パララックス部分のテキストは縦書きにしました。「自分へのご褒美」としての非日常感や居心地の良さを重視するペルソナ像に訴求するため、実際に行った際の過ごし方が想像しやすく、aetaの雰囲気が伝わる写真を多く掲載しました。
+        </p>
+      </section>
+      <section class="work-section reveal">
+        <div class="work-section-label">INFORMATION</div>
+        <h2 class="work-section-title">情報設計</h2>
+        <p class="work-body-text">
+          ユーザーがaetaの世界観に引き込まれ、カフェにいるような「体験」ができるよう、パララックス効果を取り入れました。また、スクロールするにつれてaetaに近づく感覚になってもらえるように、情報の優先順位を考慮してセクションを配置し、messageの背景を木漏れ日の写真にしました。世界観重視の洗練されたデザインによってユーザーに不安を与えないよう、パララックス部分とmessageセクション以外は、背景に合わせてグローバルメニューの色を変化させ、左上に常に表示するようにしました。
+        </p>
+      </section>
+
+      <!-- ── Full Image ── -->
+      <div class="work-full-img reveal">
+        <div class="work-img-placeholder work-img-main">
+          <img src="img/aeta-sp.webp" alt="カフェaetaのスマホ版全体デザイン" />
+        </div>
+        <div class="work-img-caption">スマホ版 全体デザイン</div>
+      </div>
+      <section class="work-section reveal">
+        <div class="work-section-label">HISTORY</div>
+        <h2 class="work-section-title">制作の経緯</h2>
+        <p class="work-body-text">
+          将来、誰かの心の拠り所となる空間を作りたいという夢があり、「母の手作りスイーツを食べてほしい」という思いと趣味のカフェ巡りから、aetaが生まれました。ネーミングは大学時代に考えていたもので、「あなたとの再会を心から喜びたい」という意味が込められています。こうして、私が作りたい空間の世界観を詰め込んだカフェ
+          aetaのサイトができました。
+        </p>
+      </section>
+
+      <!-- ── Link to site ── -->
+      <div class="work-site-link reveal">
+        <a href="aeta/index.html" class="work-site-link-btn underline" target="_blank" rel="noopener noreferrer">
+          サイトをみる
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M2 12L12 2M12 2H5M12 2V9"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <!-- ── Navigation ── -->
+      <nav class="work-nav reveal">
+        <a href="works-valentine.html" class="work-nav-prev">
+          <span class="work-nav-label">← まえへ</span>
+          <span class="work-nav-title">FLARE VALENTINE</span>
+        </a>
+        <a href="index.html#works" class="work-nav-index underline">つくったもの へもどる</a>
+        <a href="works-hibi.html" class="work-nav-next">
+          <span class="work-nav-label">つぎへ →</span>
+          <span class="work-nav-title">セルフケアブランド hibi</span>
+        </a>
+      </nav>
+
+      <!-- ── All Works Sidebar ── -->
+      <aside class="work-all-works reveal">
+        <div class="work-all-works-title">すべてのつくったもの</div>
+        <ul class="work-all-list">
+          <li class="work-all-item work-all-item--active">
+            <a href="works-aeta.html">
+              <span class="work-all-name">カフェ aeta</span>
+              <span class="work-all-cat">Webサイト</span>
+            </a>
+          </li>
+          <li class="work-all-item">
+            <a href="works-hibi.html">
+              <span class="work-all-name">セルフケアブランド hibi</span>
+              <span class="work-all-cat">Webサイト</span>
+            </a>
+          </li>
+          <li class="work-all-item">
+            <a href="works-portfolio.html">
+              <span class="work-all-name">ポートフォリオ</span>
+              <span class="work-all-cat">Webサイト</span>
+            </a>
+          </li>
+          <li class="work-all-item">
+            <a href="works-photo-exhibition.html">
+              <span class="work-all-name">写真展「いま、ここ。」</span>
+              <span class="work-all-cat">チラシ</span>
+            </a>
+          </li>
+          <li class="work-all-item">
+            <a href="works-bussiness-card.html">
+              <span class="work-all-name">Tsuki Segawa</span>
+              <span class="work-all-cat">名刺</span>
+            </a>
+          </li>
+          <li class="work-all-item">
+            <a href="works-valentine.html">
+              <span class="work-all-name">FLARE VALENTINE</span>
+              <span class="work-all-cat">バナー</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer>
+      <span class="footer-name"><a href="index.html">まつだかおり</a></span>
+      <div class="footer-right">
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

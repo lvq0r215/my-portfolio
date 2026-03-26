@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aeta</title>
+    <meta
+      name="description"
+      content="aetaのホームページです。営業時間 12:00～18:00（不定休）詳しくはInstagramをチェックしてください。"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="loading">
+      <img src="img/logo.svg" alt="aeta-logo" class="loading-logo" />
+    </div>
+
+    <!-- PC ナビゲーション -->
+    <header class="header">
+      <nav>
+        <ul>
+          <li><a href="#concept">concept</a></li>
+          <li><a href="#menu">menu</a></li>
+          <li><a href="#message">message</a></li>
+          <li><a href="#access">access</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- SP/タブレット ハンバーガーメニュー -->
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- SP/タブレット ドロワーメニュー -->
+    <div class="drawer" id="drawer">
+      <button class="drawer-close" id="drawerClose" aria-label="メニューを閉じる">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="drawer-nav">
+        <ul>
+          <li><a href="#concept" class="drawer-link">concept</a></li>
+          <li><a href="#menu" class="drawer-link">menu</a></li>
+          <li><a href="#message" class="drawer-link">message</a></li>
+          <li><a href="#access" class="drawer-link">access</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <section class="hero hide-nav">
+      <img src="img/hero-main.webp" alt="aeta" class="hero-img" />
+      <h1><img src="img/logo.svg" alt="aeta-logo" class="hero-logo" /></h1>
+    </section>
+
+    <section id="concept" class="section-snap fade text">
+      <h2 class="d-none">concept</h2>
+      <h3>
+        ひとりでも、誰かとでも<br />
+        aeta はいつもここに。
+      </h3>
+      <p>
+        広大な山の上で、<br class="sp" />ただ深呼吸をする。<br />
+        自然に包まれながら過ごす、<br class="sp" />静かなひととき。
+      </p>
+      <p>
+        ひとりで過ごす時間も、<br class="sp" />だれかと並ぶ時間も<br />
+        aeta は変わらずここにあります。
+      </p>
+    </section>
+
+    <section class="gallery hide-nav">
+      <div class="gallery-inner">
+        <h2 class="d-none">parallax</h2>
+        <img src="img/parallax1.webp" class="gallery-item fade img1" loading="lazy" />
+        <img src="img/parallax2.webp" class="gallery-item fade img2" loading="lazy" />
+        <img src="img/parallax3.webp" class="gallery-item fade img3" loading="lazy" />
+        <img src="img/parallax4.webp" class="gallery-item fade img4" loading="lazy" />
+        <img src="img/parallax5.webp" class="gallery-item fade img5" loading="lazy" />
+        <p class="vertical-text fade text1">窓辺で、眺める。</p>
+        <p class="vertical-text fade text2">音に、耳を澄ませる。</p>
+        <p class="vertical-text fade text3">湯気と、つづく時間。</p>
+      </div>
+    </section>
+
+    <section id="menu" class="menu section-snap fade">
+      <div class="menu-bg">
+        <span class="bg-word w1">Soft and</span>
+        <span class="bg-word w2">crwy crepes</span>
+        <span class="bg-word w3">Homemade custard</span>
+        <span class="bg-word w4">seasonal fruits</span>
+        <span class="bg-word w5">Brewing coffee</span>
+        <span class="bg-word w6">pairs well with crepes</span>
+        <span class="bg-word w7">time goes on gently</span>
+      </div>
+      <h2 class="d-none">menu</h2>
+      <section class="menu-up-text">
+        <p>
+          aetaは、母が焼くクレープを<br />
+          もっと多くの人に食べてほしくて<br />
+          始めたお店です。
+        </p>
+        <p>
+          もちもちのクレープ生地に、<br />
+          自家製のカスタードクリーム。
+        </p>
+        <p>
+          そこへ、季節のみずみずしいフルーツを<br />
+          そっとのせました。
+        </p>
+        <p>
+          クレープにぴったりなコーヒーも<br />
+          用意しています。
+        </p>
+      </section>
+      <h3>All menus for this month</h3>
+      <div class="menu-layout">
+        <!-- 桃: 画像→テキスト (PC・SP共通) -->
+        <div class="menu-item peach"><img src="img/menu-peach.webp" class="fade" loading="lazy" /></div>
+        <div class="menu-text peach-text">
+          <h4>桃のクレープ</h4>
+          <p>みずみずしい桃を主役にした、季節限定のクレープ。</p>
+        </div>
+
+        <!-- マスカット: PC=テキスト→画像 / SP=画像→テキスト (orderで制御) -->
+        <div class="menu-text muscat-text">
+          <h4>シャインマスカットのクレープ</h4>
+          <p>爽やかな甘さ広がる、今月だけのご褒美。</p>
+        </div>
+        <div class="menu-item muscat"><img src="img/menu-muscat.webp" alt="" class="fade" loading="lazy" /></div>
+
+        <!-- コーヒー: 画像→テキスト (PC・SP共通) -->
+        <div class="menu-item coffee"><img src="img/menu-coffee.webp" alt="" class="fade" loading="lazy" /></div>
+        <div class="menu-text coffee-text">
+          <h4>スペシャリティコーヒー（aetaブレンド）</h4>
+          <p>豆本来の香りを楽しめる一杯を。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="message" class="hide-nav">
+      <h2 class="d-none">message</h2>
+      <div class="message-inner">
+        <p>
+          忙しい日常から、<br />
+          少しだけ離れる場所でありたい。
+        </p>
+        <p>
+          aetaは、<br />
+          いつ来ても変わらない空気と、<br />
+          季節の小さな移ろいを<br />
+          大切にしています。
+        </p>
+      </div>
+    </section>
+
+    <footer id="access" class="dark-bg">
+      <h2 class="d-none">access</h2>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="#">
+            <img src="img/logo.svg" alt="aeta" class="footer-logo" />
+          </a>
+          <p class="footer-copy">
+            ひとりでも、誰かとでも<br />
+            aeta はいつも、ここに。
+          </p>
+        </div>
+        <div class="footer-access">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5558.377206933207!2d130.85864438870834!3d31.894766568654088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1772787071034!5m2!1sja!2sjp"
+            class="footer-map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+          <p>鹿児島県霧島市牧園町高千穂3333</p>
+          <p>12:00～18:00（不定休）｜8席</p>
+          <p>tel　000-7777-7777</p>
+          <p class="footer-note">※ご予約は承っておりません。ご了承ください。</p>
+          <img src="img/instagram.svg" alt="aeta-instagram" class="aeta-instagram" />
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>@ aeta</p>
+        <a href="#top">top ↑</a>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

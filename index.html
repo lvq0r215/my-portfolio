@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>まつだかおり — Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="「日常の小さなときめき」を、形になっていないけど、たしかにそこにあるものをデザインしたい。「体験」として価値を届けるデザインを、コンセプト設計から伴走していきます。現在は職業訓練を受講しながら、転職活動中。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?ver=20260322" />
+  </head>
+  <body>
+    <!-- ── Header ── -->
+    <header id="header">
+      <h1><a href="#" class="logo">まつだかおり</a></h1>
+
+      <nav>
+        <a href="#works">つくったもの<span class="nav-count">(6)</span></a>
+        <a href="about.html">わたしについて</a>
+        <a href="#contact" class="btn-contact">つながる</a>
+      </nav>
+
+      <div class="hamburger" id="hamburger" aria-label="メニュー" role="button" tabindex="0" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="nav-mobile" id="navMobile">
+      <a href="#works" class="nav-mobile-link">つくったもの</a>
+      <a href="about.html" class="nav-mobile-link">わたしについて</a>
+      <a href="#contact" class="nav-mobile-link btn-contact-mobile">つながる</a>
+    </div>
+
+    <!-- ── Hero ── -->
+    <section class="hero">
+      <div class="hero-inner" id="heroInner">
+        <img src="img/portfolio-hero.webp" alt="ポートフォリオのトップ" />
+      </div>
+    </section>
+
+    <!-- ── Works ── -->
+    <section class="section" id="works">
+      <div class="section-header">
+        <div class="section-label">Works</div>
+        <h2 class="section-title">つくったもの</h2>
+      </div>
+
+      <div class="works-category">
+        <div class="works-category-title">Webサイト (3)</div>
+        <div class="works-grid">
+          <a class="work-card" href="works-aeta.html">
+            <div class="work-card-thumb">
+              <div class="thumb-placeholder thumb-p1"><img src="img/aeta.webp" alt="カフェ aetaのトップ" /></div>
+            </div>
+            <div class="work-card-title">カフェ aeta</div>
+            <div class="work-card-tags">Webサイト &nbsp;·&nbsp; planning / design / coding</div>
+          </a>
+
+          <a class="work-card" href="works-hibi.html">
+            <div class="work-card-thumb">
+              <div class="thumb-placeholder thumb-p2">
+                <img src="img/hibi.webp" alt="セルフケアブランド hibiのトップ" />
+              </div>
+            </div>
+            <div class="work-card-title">セルフケアブランド hibi</div>
+            <div class="work-card-tags">Webサイト &nbsp;·&nbsp; planning / design</div>
+          </a>
+
+          <a class="work-card" href="works-portfolio.html">
+            <div class="work-card-thumb">
+              <div class="thumb-placeholder thumb-p3">
+                <img src="img/portfolio.webp" alt="ポートフォリオのトップ" />
+              </div>
+            </div>
+            <div class="work-card-title">ポートフォリオ</div>
+            <div class="work-card-tags">Webサイト &nbsp;·&nbsp; planning / design / coding</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="works-category">
+        <div class="works-category-title">チラシ・名刺・バナー (3)</div>
+        <div class="works-grid">
+          <a class="work-card" href="works-photo-exhibition.html">
+            <div class="work-card-thumb">
+              <div class="thumb-placeholder thumb-p4">
+                <img src="img/photo-exhibition.webp" alt="写真展「いま、ここ。」のトップ" />
+              </div>
+            </div>
+            <div class="work-card-title">写真展 「いま、ここ。」</div>
+            <div class="work-card-tags">チラシ &nbsp;·&nbsp; planning / design</div>
+          </a>
+
+          <a class="work-card" href="works-bussiness-card.html">
+            <div class="work-card-thumb">
+              <div class="thumb-placeholder thumb-p5"><img src="img/card.webp" alt="Tsuki Segawaのトップ" /></div>
+            </div>
+            <div class="work-card-title">Tsuki Segawa</div>
+            <div class="work-card-tags">名刺 &nbsp;·&nbsp; planning / design</div>
+          </a>
+
+          <a class="work-card" href="works-valentine.html">
+            <div class="work-card-thumb">
+              <div class="thumb-placeholder thumb-p6">
+                <img src="img/valentine.webp" alt="FLARE VALENTINEのトップ" />
+              </div>
+            </div>
+            <div class="work-card-title">FLARE VALENTINE</div>
+            <div class="work-card-tags">バナー &nbsp;·&nbsp; planning / design</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── About ── -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <div class="section-label">About</div>
+        <h2 class="section-title">わたしについて</h2>
+      </div>
+      <div class="about-inner">
+        <div class="about-photo-placeholder"><img src="img/me.webp" alt="桜島が見える海岸に立つまつだかおり" /></div>
+        <div class="about-content">
+          <div class="about-name-ja">まつだ かおり</div>
+          <div class="about-name-en">Kaori Matsuda</div>
+          <p class="about-text">
+            余韻を感じるときめきや、<br />「いいな」と思った瞬間を大切にしています。<br />
+            目的やルールと向き合いながら、心を動かすデザインを。<br />
+            誠実に、でも遊び心を忘れずに。<br />見た人の心が、じんわりとあたたかくなるものを目指しています。
+          </p>
+          <a href="about.html" class="about-more underline">もっと知る →</a>
+
+          <div class="hero-about">
+            <p class="hero-about-text">
+              （ トップ画像に込めた想い ）<br />日常を切り取った写真 ＝ 小さなときめき<br />
+              雲のモチーフ ＝ 形が決まっていない、どんな形にもなれる<br />
+              「形になっていないけど、たしかにそこにあるときめきを<br />デザインしたい。」
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact ── -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">つながる</h2>
+      </div>
+      <div class="contact-inner">
+        <p class="contact-desc">
+          お仕事のご依頼・ご相談など、お気軽にご連絡ください。<br />土日祝を除いた2〜3日以内にご返信いたします。
+        </p>
+
+        <form
+          id="contactForm"
+          novalidate
+          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdBjkLJAFAD8FLCGBGVUBciTJf4WSgQt1JDb5D9OlMKGng6oA/formResponse"
+          method="post"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">お名前<span class="required">必須</span></label>
+              <input
+                class="form-input"
+                type="text"
+                id="name"
+                name="entry.1333490306"
+                placeholder="山田 太郎"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">メールアドレス<span class="required">必須</span></label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="entry.1829303551"
+                placeholder="example@mail.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">件名<span class="required">必須</span></label>
+            <input
+              class="form-input"
+              type="text"
+              id="subject"
+              name="entry.1752393386"
+              placeholder="お仕事のご相談について"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">内容<span class="required">必須</span></label>
+            <textarea
+              class="form-textarea"
+              id="message"
+              name="entry.1792756802"
+              placeholder="お問い合わせの内容をご記入ください。"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-submit">送信する</button>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          ありがとうございます。メッセージを受け付けました。<br />近日中にご返信いたします。
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer>
+      <span class="footer-name"><a href="#">まつだかおり</a></span>
+      <div class="footer-right">
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
