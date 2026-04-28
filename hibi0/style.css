@@ -1801,6 +1801,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .sp-br{
     display: inline;
   }
+  .hero-sub{
+    padding-left: 15px;
+  }
 }
 
 /* ============================================================
