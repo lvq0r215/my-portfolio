@@ -1,0 +1,67 @@
+name: Deploy to Sakura
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build archive
+        run: |
+          mkdir deploy_root
+          rsync -av --delete \
+            --exclude ".git" \
+            --exclude ".github" \
+            --exclude ".DS_Store" \
+            --exclude "deploy_root" \
+            ./ deploy_root/
+          cd deploy_root
+          zip -r ../site.zip .
+
+      - name: Create signed request
+        id: sign
+        env:
+          DEPLOY_SECRET: ${{ secrets.DEPLOY_SECRET }}
+          DEPLOY_SITE_ID: ${{ secrets.DEPLOY_SITE_ID }}
+        run: |
+          test -n "$DEPLOY_SECRET"
+          test -n "$DEPLOY_SITE_ID"
+          TIMESTAMP="$(date +%s)"
+          NONCE="${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-$(git rev-parse --short HEAD)"
+          ARCHIVE_SHA256="$(sha256sum site.zip | awk '{print $1}')"
+          PAYLOAD="${TIMESTAMP}\n${NONCE}\n${DEPLOY_SITE_ID}\n${ARCHIVE_SHA256}"
+          SIGNATURE="sha256=$(printf '%b' "$PAYLOAD" | openssl dgst -sha256 -hmac "$DEPLOY_SECRET" -hex | sed 's/^.* //')"
+          {
+            echo "timestamp=$TIMESTAMP"
+            echo "nonce=$NONCE"
+            echo "signature=$SIGNATURE"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Deploy
+        env:
+          DEPLOY_URL: ${{ secrets.DEPLOY_URL }}
+          DEPLOY_SITE_ID: ${{ secrets.DEPLOY_SITE_ID }}
+          TIMESTAMP: ${{ steps.sign.outputs.timestamp }}
+          NONCE: ${{ steps.sign.outputs.nonce }}
+          SIGNATURE: ${{ steps.sign.outputs.signature }}
+        run: |
+          test -n "$DEPLOY_URL"
+          curl --fail-with-body --silent --show-error \
+            -X POST "$DEPLOY_URL" \
+            -H "X-Deploy-Timestamp: $TIMESTAMP" \
+            -H "X-Deploy-Nonce: $NONCE" \
+            -H "X-Deploy-Signature: $SIGNATURE" \
+            -F "site_id=$DEPLOY_SITE_ID" \
+            -F "archive=@site.zip;type=application/zip"
