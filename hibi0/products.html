@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>products — （hibi）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="hibiのプロダクト一覧。1日の終わりに、そばに置いておきたいものを。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200&family=Noto+Sans+JP:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ========= Navigation ========= -->
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav-logo">（hibi）</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="products.html" class="nav-current">product</a></li>
+        <li><a href="journal.html">journal</a></li>
+        <li><a href="login.html">login</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+    </nav>
+    <div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" id="navDrawerClose" aria-label="メニューを閉じる">
+    <span class="nav-drawer-close-icon"></span>
+  </button>
+  <ul class="nav-drawer-links">
+    <li><a href="#about"        onclick="closeDrawer()">about</a></li>
+    <li><a href="products.html" onclick="closeDrawer()">product</a></li>
+    <li><a href="journal.html"  onclick="closeDrawer()">journal</a></li>
+    <li><a href="login.html"    onclick="closeDrawer()">login</a></li>
+  </ul>
+</div>
+
+    <!-- ========= Page Hero ========= -->
+    <header class="pl-hero" id="plHero">
+      <div class="pl-hero-content">
+        <div class="pl-hero-eyebrow fade-up">product</div>
+        <h1 class="pl-hero-title fade-up" style="--delay:0.1s">
+        （ hibiのプロダクト ）
+        </h1>
+        <p class="pl-hero-desc fade-up" style="--delay:0.22s">
+          1日の終わりに、<br />そばに置いておきたいものを。
+        </p>
+      </div>
+    </header>
+
+    <!-- ========= Breadcrumb ========= -->
+    <div class="breadcrumb" id="breadcrumb">
+      <span class="breadcrumb-item"><a href="index.html">top</a></span>
+      <span class="breadcrumb-sep">—</span>
+      <span class="breadcrumb-item current">product</span>
+    </div>
+
+    <!-- ========= Main ========= -->
+    <main class="pl-main">
+
+      <!-- フィルタバー -->
+      <section class="pl-filter-bar" id="filterBar">
+        <div class="pl-filter-inner">
+          <div class="pl-filter-group">
+            <span class="pl-filter-label">category</span>
+            <div class="pl-filter-btns" role="group" aria-label="カテゴリフィルタ">
+              <button class="pl-filter-btn active" data-filter="all">all</button>
+              <button class="pl-filter-btn" data-filter="notebook">notebook</button>
+              <button class="pl-filter-btn" data-filter="light">lamp</button>
+              <button class="pl-filter-btn" data-filter="scent">candle</button>
+              <button class="pl-filter-btn" data-filter="set">set</button>
+            </div>
+          </div>
+          <div class="pl-sort-group">
+            <select class="pl-sort-select" id="sortSelect" aria-label="並び替え">
+              <option value="default">おすすめ順</option>
+              <option value="price-asc">価格が低い順</option>
+              <option value="price-desc">価格が高い順</option>
+              <option value="newest">新着順</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- プロダクトグリッド -->
+      <section class="pl-grid-section" id="gridSection">
+        <div class="pl-grid" id="plGrid">
+
+          <!-- 1: hibiノート -->
+          <article class="pl-card fade-up" data-category="notebook" data-price="1100" data-order="1" style="--delay:0.05s">
+            <a href="products-note.html" class="pl-card-link">
+              <div class="pl-card-img-wrap">
+                <img src="img/hibi-note.webp" alt="hibiノート" class="pl-card-img" />
+                <div class="pl-card-img-overlay"></div>
+                <span class="pl-card-badge">notebook</span>
+              </div>
+              <div class="pl-card-body">
+                <div class="pl-card-meta">
+                  <p class="pl-card-name">hibi ノート</p>
+                  <p class="pl-card-price">¥ 1,100</p>
+                </div>
+                <p class="pl-card-desc">1行だけの日記帳。今日のことを、ひと言だけ書きとめる場所。</p>
+                <span class="pl-card-arrow">→</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 2: hibiランプ -->
+          <article class="pl-card fade-up" data-category="light" data-price="5100" data-order="2" style="--delay:0.12s">
+            <a href="products-lamp.html" class="pl-card-link">
+              <div class="pl-card-img-wrap">
+                <img src="img/hibi-lamp.webp" alt="hibiランプ" class="pl-card-img" />
+                <div class="pl-card-img-overlay"></div>
+                <span class="pl-card-badge">lamp</span>
+              </div>
+              <div class="pl-card-body">
+                <div class="pl-card-meta">
+                  <p class="pl-card-name">hibi ランプ</p>
+                  <p class="pl-card-price">¥ 5,100</p>
+                </div>
+                <p class="pl-card-desc">呼吸するように明滅するあかり。</p>
+                <span class="pl-card-arrow">→</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 3: hibiキャンドル -->
+          <article class="pl-card fade-up" data-category="scent" data-price="2200" data-order="3" style="--delay:0.19s">
+            <a href="products-candle.html" class="pl-card-link">
+              <div class="pl-card-img-wrap">
+                <img src="img/hibi-candle.webp" alt="hibiキャンドル" class="pl-card-img" />
+                <div class="pl-card-img-overlay"></div>
+                <span class="pl-card-badge">candle</span>
+              </div>
+              <div class="pl-card-body">
+                <div class="pl-card-meta">
+                  <p class="pl-card-name">hibi キャンドル</p>
+                  <p class="pl-card-price">¥ 2,200</p>
+                </div>
+                <p class="pl-card-desc">燃焼時間を選べる小さな灯火。</p>
+                <span class="pl-card-arrow">→</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- 4: hibi スターターセット -->
+          <article class="pl-card pl-card--wide fade-up" data-category="set" data-price="7700" data-order="4" style="--delay:0.26s">
+            <a href="products-set.html" class="pl-card-link">
+              <div class="pl-card-img-wrap">
+                <img src="img/set-hero1.webp" alt="hibiスターターセット" class="pl-card-img" />
+                <div class="pl-card-img-overlay"></div>
+                <span class="pl-card-badge">set</span>
+                <div class="pl-card-wide-label">
+                  <p>はじめての hibi に。</p>
+                </div>
+              </div>
+              <div class="pl-card-body">
+                <div class="pl-card-meta">
+                  <p class="pl-card-name">hibi スターターセット</p>
+                  <p class="pl-card-price">¥ 7,700</p>
+                </div>
+                <p class="pl-card-desc">ノート・ランプ・キャンドルをひとつにまとめた、はじめての hibi セット。</p>
+                <span class="pl-card-arrow">→</span>
+              </div>
+            </a>
+          </article>
+
+        </div>
+
+        <!-- 件数 -->
+        <p class="pl-count" id="plCount"><span id="plCountNum">4</span> products</p>
+      </section>
+
+      <!-- ========= 哲学バナー ========= -->
+      <section class="pl-banner fade-up">
+        <div class="about-stars" aria-hidden="true">
+  <span class="shooting-star"></span>
+  <span class="shooting-star"></span>
+  <span class="shooting-star"></span>
+  <span class="shooting-star"></span>
+  <span class="shooting-star"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+</div>
+        <div class="pl-banner-inner">
+          <p class="pl-banner-text">
+            1日の終わりに、<br />すこしだけ呼吸が深くなる時間。
+          </p>
+          <a href="index.html#about" class="btn-fill">hibiについて →</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========= Footer ========= -->
+    <footer class="footer" id="footer">
+      <div class="footer-top">
+        <div class="footer-logo-col">
+          <a href="index.html" class="footer-logo">( hibi )</a>
+          <p class="footer-tagline">今日を整える、やさしい習慣。</p>
+        </div>
+        <nav class="footer-nav" aria-label="サイトマップ">
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">top</p>
+            <ul>
+              <li><a href="index.html#about">about</a></li>
+              <li><a href="products.html">product</a></li>
+              <li><a href="index.html#journal">journal</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">membership</p>
+            <ul>
+              <li><a href="membership.html">hibi+</a></li>
+              <li><a href="login.html">login</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">company</p>
+            <ul>
+              <li><a href="#info">info</a></li>
+              <li><a href="#privacypolicy">privacypolicy</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 hibi. All rights reserved.</p>
+        <button class="footer-totop" id="toTop" aria-label="ページトップへ">top ↑</button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

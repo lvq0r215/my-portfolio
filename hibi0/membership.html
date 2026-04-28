@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>（hibi+） — （hibi）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="hibi+は、あなたの日々をかたちに残す有料プランです。無制限の日記保存、月末PDF、年に一度の冊子郵送、限定プロダクト先行購入・会員割引、瞑想・音声コンテンツを楽しめます。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200&family=Noto+Sans+JP:wght@200;300;400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ========= Navigation ========= -->
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav-logo">（hibi）</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="products.html">product</a></li>
+        <li><a href="journal.html">journal</a></li>
+        <li><a href="login.html">login</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav-drawer" id="navDrawer">
+      <button class="nav-drawer-close" id="navDrawerClose" aria-label="メニューを閉じる">
+        <span class="nav-drawer-close-icon"></span>
+      </button>
+      <ul class="nav-drawer-links">
+        <li><a href="index.html#about" onclick="closeDrawer()">about</a></li>
+        <li><a href="products.html"    onclick="closeDrawer()">product</a></li>
+        <li><a href="journal.html"     onclick="closeDrawer()">journal</a></li>
+        <li><a href="login.html"       onclick="closeDrawer()">login</a></li>
+      </ul>
+    </div>
+
+    <!-- ========= Hero ========= -->
+<section class="me-hero" id="plHero">
+  <canvas class="hero-particle-canvas" id="heroCanvas"></canvas>
+  <div class="me-hero-content" id="heroContent">
+    <span class="me-hero-eyebrow fade-up">hibi+ membership</span>
+    <h1 class="me-hero-title fade-up" style="--delay:0.1s">（今日を、日々を、<br class="sp-br">かたちに。）</h1>
+    <p class="me-hero-desc fade-up" style="--delay:0.22s">
+      紡いだ言葉は、綴ることができる。<br />
+      月末はPDFに、年に一度は冊子になって、<br />
+      あなたのもとへ届きます。
+    </p>
+    <a href="#pricing" class="hero-cta"><span>hibi+ をはじめる</span></a>
+  </div>
+</section>
+
+    <!-- ========= Story ========= -->
+    <section class="story" id="story">
+      <div class="story-inner">
+        <div class="story-header fade-up">
+          <span class="section-tag">the experience</span>
+          <h2 class="section-title">（ 日々が、<br class="sp-br">かたちになるまで ）</h2>
+          <p class="section-body">
+            デジタルの日記は、月日とともに見えなくなる。<br />
+            hibi+は、あなたの言葉をていねいに残します。
+          </p>
+        </div>
+        <div class="timeline">
+
+          <div class="timeline-item fade-up">
+            <div class="timeline-node"><div class="timeline-dot"></div></div>
+            <div class="timeline-body">
+              <p class="timeline-label">every night</p>
+              <h3 class="timeline-title">今日のことを、すこしだけ書く。</h3>
+              <p class="timeline-desc">うまくいかなかったことも、<br>小さなうれしかったことも。<br />1行で大丈夫。<br />hibi+なら、書いた日記はすべて無制限で保存されます。</p>
+              <div class="timeline-visual">
+                <div class="timeline-visual-inner">
+                  <div class="visual-notebook">
+                    <div class="visual-notebook-line"></div>
+                    <div class="visual-notebook-line"></div>
+                    <div class="visual-notebook-line"></div>
+                    <div class="visual-notebook-line"></div>
+                    <div class="visual-notebook-line"></div>
+                    <p class="visual-notebook-label">daily note</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item fade-up" style="--delay:0.1s">
+            <div class="timeline-node"><div class="timeline-dot"></div></div>
+            <div class="timeline-body">
+              <p class="timeline-label">end of month</p>
+              <h3 class="timeline-title">月末に、PDFとして手元へ。</h3>
+              <p class="timeline-desc">その月に書いたすべての日記が、<br />PDFにまとめられます。<br />読み返すたびに、あの夜のことを思い出せる。</p>
+              <div class="timeline-visual">
+                <div class="timeline-visual-inner">
+                  <div class="visual-pdf">
+                    <div class="visual-pdf-page"><div class="visual-pdf-line"></div><div class="visual-pdf-line"></div><div class="visual-pdf-line"></div><div class="visual-pdf-line"></div></div>
+                    <div class="visual-pdf-page"><div class="visual-pdf-line"></div><div class="visual-pdf-line"></div><div class="visual-pdf-line"></div><div class="visual-pdf-line"></div></div>
+                    <div class="visual-pdf-page"><div class="visual-pdf-line"></div><div class="visual-pdf-line"></div><div class="visual-pdf-line"></div><div class="visual-pdf-line"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item fade-up" style="--delay:0.2s">
+            <div class="timeline-node"><div class="timeline-dot"></div></div>
+            <div class="timeline-body">
+              <p class="timeline-label">once a year</p>
+              <h3 class="timeline-title">年に一度、冊子になって届く。</h3>
+              <p class="timeline-desc">1年分の日記が、製本された小さな冊子になります。<br />郵便受けに届く、自分だけの1冊。<br />本棚に並べるほどに、積み重なっていきます。</p>
+              <div class="timeline-visual">
+                <div class="timeline-visual-inner">
+                  <div class="visual-book"><p class="visual-book-title">hibi 2026</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Features ========= -->
+    <section class="features" id="features">
+      <div class="features-inner">
+        <div class="features-header fade-up">
+          <span class="section-tag">what you get</span>
+          <h2 class="section-title">（ hibi+でできること ）</h2>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card fade-up">
+            <p class="feature-num">01</p>
+            <h3 class="feature-title">日記の無制限保存・いつでも振り返り</h3>
+            <p class="feature-desc">無料プランは直近7日まで。hibi+なら、すべての日記がいつでも読み返せます。1年前の今日、何を思っていたか覗いてみませんか。</p>
+          </div>
+          <div class="feature-card fade-up" style="--delay:0.08s">
+            <p class="feature-num">02</p>
+            <h3 class="feature-title">月末PDF化・年1回冊子郵送</h3>
+            <p class="feature-desc">毎月の日記をPDFで配信。1年分は製本して郵送します。本棚に並ぶ、あなただけの思い出たち。</p>
+          </div>
+          <div class="feature-card fade-up" style="--delay:0.12s">
+            <p class="feature-num">03</p>
+            <h3 class="feature-title">限定プロダクトの先行購入・会員割引</h3>
+            <p class="feature-desc">hibiプロダクトの新作をいち早く。会員限定の特別価格でお届けします。</p>
+          </div>
+          <div class="feature-card fade-up" style="--delay:0.16s">
+            <p class="feature-num">04</p>
+            <h3 class="feature-title">瞑想・音声コンテンツへのアクセス</h3>
+            <p class="feature-desc">眠る前の5分間、ガイド付き呼吸と静かな音楽。1日の終わりをもっとやさしく閉じるために。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- ========= Philosophy Section ========= -->
+    <section class="philosophy-section" id="philosophy">
+  <canvas class="philosophy-canvas" id="ringCanvas"></canvas>
+  <div class="philosophy-inner">
+    <span class="philosophy-mark fade-up">"</span>
+    <p class="philosophy-text fade-up" style="--delay: 0.12s">
+      あなたが大切にした、あなただけの日々です。<br />
+      なんでもない、かけがえのない日常を<br />
+      手元に残して、抱きしめましょう。
+    </p>
+    <p class="philosophy-author fade-up" style="--delay: 0.24s">— hibi+, 2026</p>
+  </div>
+</section>
+
+    <!-- ========= Pricing ========= -->
+    <section class="pricing" id="pricing">
+      <div class="pricing-inner">
+        <div class="pricing-header fade-up">
+          <span class="section-tag">pricing</span>
+          <h2 class="section-title">（ プランを選ぶ ）</h2>
+        </div>
+        <div class="pricing-grid fade-up" style="--delay:0.1s">
+          <div class="pricing-col">
+            <p class="pricing-plan-name">member</p>
+            <p class="pricing-price">¥0</p>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><span class="pf-icon check"></span>気持ち選択</li>
+              <li class="pricing-feature"><span class="pf-icon check"></span>今日をとじる（日記入力）</li>
+              <li class="pricing-feature"><span class="pf-icon check"></span>過去7日分の日記閲覧</li>
+              <li class="pricing-feature disabled"><span class="pf-icon dash"></span>日記の無制限保存</li>
+              <li class="pricing-feature disabled"><span class="pf-icon dash"></span>月末PDF・冊子郵送</li>
+              <li class="pricing-feature disabled"><span class="pf-icon dash"></span>限定プロダクト先行購入・会員割引</li>
+              <li class="pricing-feature disabled"><span class="pf-icon dash"></span>瞑想・音声コンテンツ</li>
+            </ul>
+            <a href="login.html" class="pricing-btn outline">無料で登録する</a>
+          </div>
+          <div class="pricing-col featured">
+            <p class="pricing-plan-name">hibi+</p>
+            <p class="pricing-price">¥480<span class="pricing-price-unit">/月</span></p>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><span class="pf-icon check"></span>気持ち選択</li>
+              <li class="pricing-feature"><span class="pf-icon check"></span>今日をとじる（日記入力）</li>
+              <li class="pricing-feature"><span class="pf-icon check"></span>日記の無制限保存・閲覧</li>
+              <li class="pricing-feature"><span class="pf-icon check"></span>月末PDF化</li>
+              <li class="pricing-feature"><span class="pf-icon check"></span>年1回、冊子として郵送</li>
+              <li class="pricing-feature"><span class="pf-icon check"></span>限定プロダクト先行購入・会員割引</li>
+              <li class="pricing-feature"><span class="pf-icon check"></span>瞑想・音声コンテンツ</li>
+            </ul>
+            <a href="login.html" class="pricing-btn filled"><span>hibi+ をはじめる</span></a>
+          </div>
+        </div>
+        <p class="pricing-note fade-up" style="--delay:0.2s">
+          いつでもキャンセル可能です。契約期間の縛りはありません。<br />冊子郵送は国内限定となります。
+        </p>
+      </div>
+    </section>
+
+    <!-- ========= FAQ ========= -->
+    <section class="faq" id="faq">
+      <div class="faq-inner">
+        <div class="faq-header fade-up">
+          <span class="section-tag">faq</span>
+          <h2 class="section-title">（ よくある質問 ）</h2>
+        </div>
+        <ul class="faq-list">
+          <li class="faq-item fade-up">
+            <button type="button" class="faq-q" onclick="toggleFaq(this)"><span>いつでも解約できますか？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p class="faq-a-text">はい、マイページからいつでも解約できます。解約後も、その月の末日まではhibi+の機能をご利用いただけます。契約期間の縛りは一切ありません。</p></div>
+          </li>
+          <li class="faq-item fade-up" style="--delay:0.05s">
+            <button type="button" class="faq-q" onclick="toggleFaq(this)"><span>冊子は毎年届きますか？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p class="faq-a-text">年に1回（12月末時点でhibi+会員の方）、1年分の日記をまとめた冊子をご登録住所にお届けします。お届けは翌年1〜2月を予定しています。</p></div>
+          </li>
+          <li class="faq-item fade-up" style="--delay:0.1s">
+            <button type="button" class="faq-q" onclick="toggleFaq(this)"><span>無料会員の日記データはどうなりますか？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p class="faq-a-text">無料会員は直近7日分の日記を閲覧できます。8日以前のデータはサーバー上に保持されていますが、無料プランでは表示されません。hibi+にアップグレードすることで、すべての日記に再びアクセスできます。</p></div>
+          </li>
+          <li class="faq-item fade-up" style="--delay:0.15s">
+            <button type="button" class="faq-q" onclick="toggleFaq(this)"><span>PDFはいつ届きますか？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p class="faq-a-text">毎月1日に、前月分の日記をまとめたPDFをメールでお届けします。マイページからいつでもダウンロードも可能です。</p></div>
+          </li>
+          <li class="faq-item fade-up" style="--delay:0.2s">
+            <button type="button" class="faq-q" onclick="toggleFaq(this)"><span>支払い方法は何が使えますか？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p class="faq-a-text">クレジットカード（VISA・Mastercard・JCB・AMEX）でのお支払いに対応しています。毎月自動更新となります。</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========= CTA Banner ========= -->
+    <section class="cta-banner">
+      <div class="cta-banner-ring"></div>
+      <div class="cta-banner-inner fade-up">
+        <span class="cta-banner-tag">start today</span>
+        <h2 class="cta-banner-title">今夜から、はじめよう。</h2>
+        <p class="cta-banner-sub">1日の終わりに、すこしだけ書く。<br />その積み重ねが、あなただけの1冊になります。</p>
+        <div class="cta-btn-row">
+          <a href="login.html" class="cta-btn-primary"><span>hibi+ をはじめる — ¥480/月</span></a>
+          <a href="login.html" class="cta-btn-secondary">まずは無料で登録</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Footer ========= -->
+    <footer class="footer" id="footer">
+      <div class="footer-top">
+        <div class="footer-logo-col">
+          <a href="index.html" class="footer-logo">( hibi )</a>
+          <p class="footer-tagline">今日を整える、やさしい習慣。</p>
+        </div>
+        <nav class="footer-nav" aria-label="サイトマップ">
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">top</p>
+            <ul>
+              <li><a href="index.html#about">about</a></li>
+              <li><a href="products.html">product</a></li>
+              <li><a href="journal.html">journal</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">membership</p>
+            <ul>
+              <li><a href="membership.html">hibi+</a></li>
+              <li><a href="login.html">login</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">company</p>
+            <ul>
+              <li><a href="#info">info</a></li>
+              <li><a href="#privacypolicy">privacy policy</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 hibi. All rights reserved.</p>
+        <button type="button" class="footer-totop" id="toTop">top ↑</button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

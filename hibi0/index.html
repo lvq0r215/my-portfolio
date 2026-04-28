@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>（hibi） — 今日を整える、やさしい習慣。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="hibiは、今日をとじる場所です。うまくいかなかった日も、そのままでいい。あなたの気持ちがほどける瞬間に寄り添う「小さな習慣」を届けます。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200&family=Noto+Sans+JP:wght@200;300;400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ========= Navigation ========= -->
+    <nav class="nav" id="nav">
+      <a href="#" class="nav-logo">（hibi）</a>
+      <ul class="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="products.html">product</a></li>
+        <li><a href="journal.html">journal</a></li>
+        <li><a href="login.html">login</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav-drawer" id="navDrawer">
+      <button class="nav-drawer-close" id="navDrawerClose" aria-label="メニューを閉じる">
+        <span class="nav-drawer-close-icon"></span>
+      </button>
+      <ul class="nav-drawer-links">
+        <li><a href="#about"        onclick="closeDrawer()">about</a></li>
+        <li><a href="products.html" onclick="closeDrawer()">product</a></li>
+        <li><a href="journal.html"  onclick="closeDrawer()">journal</a></li>
+        <li><a href="login.html"    onclick="closeDrawer()">login</a></li>
+      </ul>
+    </div>
+
+    <!-- ========= Hero ========= -->
+    <section class="hero" id="hero">
+      <div class="hero-parallax" id="heroParallax">
+        <img src="img/top-hero.webp" alt="やわらかな光の寝室" class="hero-image" />
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-tagline"><span class="jp">（</span>hibi<span class="jp">）</span></h1>
+        <p class="hero-sub">今日を整える、<br class="sp-br">やさしい習慣。</p>
+        <a href="#experience" class="hero-scroll-hint">
+        </a>
+      </div>
+    </section>
+    
+    <!-- ========= Main ========= -->
+    <main class="main-content">
+
+      <!-- デジタル体験 -->
+      <section class="experience section" id="experience">
+        <h2 class="section-title hidden">デジタル体験</h2>
+        <div class="experience-inner">
+          <div class="experience-visual fade-up" style="--delay:0.15s">
+            <div class="breath-ring breath-ring--1"></div>
+            <div class="breath-ring breath-ring--2"></div>
+            <div class="breath-ring breath-ring--3"></div>
+            <p class="breath-caption">ゆっくり、吸って。<br />ゆっくり、吐いて。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 気持ちピッカー -->
+      <section class="kimochi section" id="kimochi">
+        <div class="kimochi-wrap" id="kimochiWrap">
+          <p class="kimochi-prompt" id="kimochiPrompt">いまの、気持ちは...</p>
+          <div class="kimochi-stage" id="kimochiStage"></div>
+        </div>
+      </section>
+
+      <!-- 今日をとじる -->
+      <section class="tojiru section" id="tojiru">
+        <div class="tojiru-inner fade-up">
+          <div class="tojiru-stage" id="tojiruStage">
+            <p class="tojiru-prompt" id="tojiruPrompt">今日のこと、すこしだけ。</p>
+            <div class="tojiru-field-wrap" id="tojiruFieldWrap">
+              <textarea class="tojiru-textarea" id="tojiruTextarea"
+                placeholder="うまくいかなかったことも、ちいさなうれしかったことも。"
+                maxlength="220" rows="5"></textarea>
+              <span class="tojiru-counter" id="tojiruCounter">0 / 200</span>
+            </div>
+            <div class="tojiru-actions" id="tojiruActions">
+              <button class="tojiru-btn" id="tojiruBtn">今日を、とじる</button>
+            </div>
+            <div class="tojiru-done" id="tojiruDone">
+              <p class="tojiru-done-msg">今日も、おつかれさまでした。</p>
+              <span class="tojiru-tsuduru" id="tojiruTsuduru"><a href="membership.html">今日を、つづる。</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<div class="wave-divider wave-divider--top" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C180,55 360,5 540,30 C720,55 900,5 1080,30 C1260,55 1350,10 1440,28 L1440,60 L0,60 Z" fill="#2e3040"/>
+    <path d="M0,30 C180,55 360,5 540,30 C720,55 900,5 1080,30 C1260,55 1350,10 1440,28" fill="none" stroke="rgba(196,168,130,0.25)" stroke-width="1"/>
+  </svg>
+</div>
+
+      <!-- About -->
+      <section class="about section" id="about">
+  <div class="about-stars" aria-hidden="true">
+  <span class="shooting-star"></span>
+  <span class="shooting-star"></span>
+  <span class="shooting-star"></span>
+  <span class="shooting-star"></span>
+  <span class="shooting-star"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+  <span class="star-dot"></span>
+</div>
+  <div class="about-inner">
+    <div class="about-text-col fade-up" style="--delay:0.2s">
+      <h2 class="section-title">hibiは、<br />( 今日をとじる場所 )です。</h2>
+      <p class="about-text">うまくいかなかった日も、<br />そのままでいい。</p>
+      <p class="about-text">すこしだけ<br />呼吸が深くなる時間。</p>
+      <p class="about-text">1日の終わりに、そばに。</p>
+    </div>
+  </div>
+</section>
+
+      <div class="wave-divider wave-divider--bottom" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,32 C200,8 400,52 600,32 C800,12 1000,50 1200,30 C1320,18 1380,40 1440,34 L1440,0 L0,0 Z" fill="#2e3040"/>
+    <path d="M0,32 C200,8 400,52 600,32 C800,12 1000,50 1200,30 C1320,18 1380,40 1440,34" fill="none" stroke="rgba(196,168,130,0.25)" stroke-width="1"/>
+  </svg>
+</div>
+
+      <!-- Products -->
+      <section class="products section" id="products">
+        <div class="products-inner">
+          <div class="section-header fade-up">
+            <span class="tag">product</span>
+            <h2 class="section-title">( hibiのプロダクト )</h2>
+          </div>
+          <div class="products-grid">
+            <article class="product-card fade-up">
+              <a href="products-note.html" class="product-card-link">
+                <div class="product-card-img-wrap">
+                  <img src="img/hibi-note.webp" alt="hibiノート" class="product-card-img" />
+                  <div class="product-card-img-overlay"></div>
+                </div>
+                <div class="product-card-body">
+                  <p class="product-card-name">hibiノート</p>
+                  <p class="product-card-desc">1行だけの日記帳。</p>
+                </div>
+              </a>
+            </article>
+            <article class="product-card fade-up" style="--delay:0.12s">
+              <a href="products-lamp.html" class="product-card-link">
+                <div class="product-card-img-wrap">
+                  <img src="img/hibi-lamp.webp" alt="hibiランプ" class="product-card-img" />
+                  <div class="product-card-img-overlay"></div>
+                </div>
+                <div class="product-card-body">
+                  <p class="product-card-name">hibiランプ</p>
+                  <p class="product-card-desc">呼吸するように明滅するあかり。</p>
+                </div>
+              </a>
+            </article>
+            <article class="product-card fade-up" style="--delay:0.24s">
+              <a href="products-candle.html" class="product-card-link">
+                <div class="product-card-img-wrap">
+                  <img src="img/hibi-candle.webp" alt="hibiキャンドル" class="product-card-img" />
+                  <div class="product-card-img-overlay"></div>
+                </div>
+                <div class="product-card-body">
+                  <p class="product-card-name">hibiキャンドル</p>
+                  <p class="product-card-desc">燃焼時間を選べる小さな灯火。</p>
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="section-footer fade-up">
+            <a href="products.html" class="btn-fill">すべてのプロダクトへ →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Journal -->
+      <section class="journal section" id="journal">
+        <div class="journal-inner">
+          <div class="section-header fade-up">
+            <span class="tag">journal</span>
+            <h2 class="section-title">( hibiのジャーナル )</h2>
+            <p class="body-text">hibiのこと、<br />日々のこと。</p>
+          </div>
+          <div class="journal-grid">
+            <article class="journal-card fade-up" style="--delay:0.12s">
+              <a href="journal-article3.html" class="journal-card-link">
+                <div class="journal-card-img-wrap">
+                  <img src="img/journal3.webp" alt="ジャーナル記事" class="journal-card-img" />
+                </div>
+                <div class="journal-card-body">
+                  <span class="journal-card-cat">習慣</span>
+                  <h3 class="journal-card-title">呼吸が深くなるリラックスタイムを</h3>
+                  <p class="journal-card-desc">無意識にしている呼吸を整えるために。</p>
+                </div>
+              </a>
+            </article>
+            <article class="journal-card fade-up">
+              <a href="journal-article2.html" class="journal-card-link">
+                <div class="journal-card-img-wrap">
+                  <img src="img/journal2.webp" alt="ジャーナル記事" class="journal-card-img" />
+                </div>
+                <div class="journal-card-body">
+                  <span class="journal-card-cat">悩み</span>
+                  <h3 class="journal-card-title">今日をとじられない日もある</h3>
+                  <p class="journal-card-desc">考えすぎてしまう日も、気持ちが追いつかない日も。</p>
+                </div>
+              </a>
+            </article>
+            <article class="journal-card fade-up" style="--delay:0.24s">
+              <a href="journal-article1.html" class="journal-card-link">
+                <div class="journal-card-img-wrap">
+                  <img src="img/journal1.webp" alt="ジャーナル記事" class="journal-card-img" />
+                </div>
+                <div class="journal-card-body">
+                  <span class="journal-card-cat">hibi</span>
+                  <h3 class="journal-card-title">hibiができるまでのこと</h3>
+                  <p class="journal-card-desc">すぐかたちにならなかった、名前をつけるまでのこれまで。</p>
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="section-footer fade-up">
+            <a href="journal.html" class="btn-fill">すべてのジャーナルへ →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Store -->
+      <section class="store section" id="store">
+        <div class="store-inner">
+          <div class="store-text fade-up" style="--delay:0.15s">
+            <span class="tag">store</span>
+            <h2 class="section-title">( hibiのストア )</h2>
+            <p class="body-text">1日の終わりに、<br />そばに置いておきたいものを。</p>
+            <a href="products.html" class="btn-fill">hibiのストアへ →</a>
+          </div>
+          <a href="products.html">
+            <div class="store-image-wrap fade-up">
+              <img src="img/set-hero1.webp" alt="hibiのプロダクトがテーブルに並んでいる" class="store-image" />
+              <div class="store-image-overlay"></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========= Footer ========= -->
+    <footer class="footer" id="footer">
+      <div class="footer-top">
+        <div class="footer-logo-col">
+          <a href="#" class="footer-logo">( hibi )</a>
+          <p class="footer-tagline">今日を整える、やさしい習慣。</p>
+        </div>
+        <nav class="footer-nav" aria-label="サイトマップ">
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">top</p>
+            <ul>
+              <li><a href="#about">about</a></li>
+              <li><a href="products.html">product</a></li>
+              <li><a href="journal.html">journal</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">membership</p>
+            <ul>
+              <li><a href="membership.html">hibi+</a></li>
+              <li><a href="login.html">login</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">company</p>
+            <ul>
+              <li><a href="#info">info</a></li>
+              <li><a href="#privacypolicy">privacypolicy</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 hibi. All rights reserved.</p>
+        <button class="footer-totop" id="toTop" aria-label="ページトップへ">top ↑</button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

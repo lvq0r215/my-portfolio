@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>hibiキャンドル — （hibi）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="hibiキャンドルは、燃焼時間で選べる小さな灯火。好きな香りに包まれながら、リラックスできる1日の終わりを。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200&family=Noto+Sans+JP:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ========= Navigation ========= -->
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav-logo">（hibi）</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="products.html" class="nav-current">product</a></li>
+        <li><a href="journal.html">journal</a></li>
+        <li><a href="login.html">login</a></li>
+      </ul>
+<button class="nav-hamburger" id="navHamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+    </nav>
+    <div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" id="navDrawerClose" aria-label="メニューを閉じる">
+    <span class="nav-drawer-close-icon"></span>
+  </button>
+  <ul class="nav-drawer-links">
+    <li><a href="#about"        onclick="closeDrawer()">about</a></li>
+    <li><a href="products.html" onclick="closeDrawer()">product</a></li>
+    <li><a href="journal.html"  onclick="closeDrawer()">journal</a></li>
+    <li><a href="login.html"    onclick="closeDrawer()">login</a></li>
+  </ul>
+</div>
+
+    <!-- ========= Breadcrumb ========= -->
+    <div class="pl-breadcrumb" id="plbreadcrumb">
+      <span class="pl-breadcrumb-item"><a href="index.html">top</a></span>
+      <span class="pl-breadcrumb-sep">—</span>
+      <span class="pl-breadcrumb-item"><a href="products.html">product</a></span>
+      <span class="pl-breadcrumb-sep">—</span>
+      <span class="pl-breadcrumb-item current">hibiキャンドル</span>
+    </div>
+
+    <!-- ========= Product Hero ========= -->
+    <section class="product-hero" id="productHero">
+      <!-- 左: ギャラリー -->
+      <div class="product-gallery" id="productGallery">
+        <div class="gallery-main" id="galleryMain">
+          <!-- 画像スロット (実画像は img/hibi-note*.webp に差し替え) -->
+          <div class="gallery-main-img active" id="slide0">
+            <img src="img/candle-hero1.webp" alt="hibiキャンドル">
+          </div>
+          <div class="gallery-main-img" id="slide1">
+            <img src="img/candle-hero2.webp" alt="リラックス空間にあかりを灯すhibiキャンドル">
+          </div>
+          <div class="gallery-main-img" id="slide2">
+            <img src="img/candle-hero3.webp" alt="hibiキャンドルとパッケージ">
+          </div>
+        </div>
+        <div class="gallery-overlay"></div>
+
+        <!-- サムネイル -->
+        <div class="gallery-thumbs" id="galleryThumbs">
+          <div class="gallery-thumb active" data-index="0">
+            <div class="gallery-thumb-inner"><img src="img/candle-hero1.webp" alt="hibiキャンドル"></div>
+          </div>
+          <div class="gallery-thumb" data-index="1">
+            <div class="gallery-thumb-inner"><img src="img/candle-hero2.webp" alt="リラックス空間にあかりを灯すhibiキャンドル"></div>
+          </div>
+          <div class="gallery-thumb" data-index="2">
+            <div class="gallery-thumb-inner"><img src="img/candle-hero3.webp" alt="hibiキャンドルとパッケージ"></div>
+          </div>
+        </div>
+        <div class="gallery-counter" id="galleryCounter">01 / 03</div>
+      </div>
+
+      <!-- 右: 商品情報 -->
+      <div class="product-info" id="productInfo">
+        <div class="product-tag fade-up" style="--delay: 0.1s">candle</div>
+
+        <h1 class="product-name fade-up" style="--delay: 0.18s">hibi キャンドル</h1>
+
+        <p class="product-tagline fade-up" style="--delay: 0.28s">
+          燃焼時間で選べる小さな灯火。<br />
+          好きな香りに包まれながら、リラックスできる自分時間を。
+        </p>
+
+        <div class="product-divider fade-up" style="--delay: 0.32s"></div>
+
+        <div class="product-price-wrap fade-up" style="--delay: 0.36s">
+          <span class="product-price">¥ 2,200</span>
+          <span class="product-price-label">JPY</span>
+          <span class="product-price-tax">（税込）</span>
+        </div>
+
+        <!-- バリアント: 色 -->
+        <div class="product-options fade-up" style="--delay: 0.4s">
+          <div class="option-group">
+            <p class="option-label">time</p>
+            <div class="option-choices" id="colorOptions">
+              <button class="option-btn selected" data-group="color">10分</button>
+              <button class="option-btn" data-group="color">30分</button>
+              <button class="option-btn" data-group="color">1時間</button>
+              <button class="option-btn" data-group="color">3時間</button>
+              <button class="option-btn" data-group="color">6時間</button>
+            </div>
+          </div>
+          <div class="option-group">
+            <p class="option-label">scents</p>
+            <div class="option-choices" id="sizeOptions">
+              <button class="option-btn selected" data-group="size">つづく余白</button>
+              <button class="option-btn" data-group="size">ほどける夜</button>
+              <button class="option-btn" data-group="size">しずかな木陰
+              </button>
+              <button class="option-btn" data-group="size">やわらかい日差し</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 数量 -->
+        <div class="qty-wrap fade-up" style="--delay: 0.44s">
+          <button class="qty-btn" id="qtyMinus">−</button>
+          <span class="qty-num" id="qtyNum">1</span>
+          <button class="qty-btn" id="qtyPlus">＋</button>
+        </div>
+
+        <!-- CTA -->
+        <div class="product-cta fade-up" style="--delay: 0.48s">
+          <button class="btn-cart" id="cartBtn"><span>カートに入れる</span></button>
+          <button class="btn-wishlist" id="wishlistBtn">お気に入りに追加する</button>
+        </div>
+
+        <!-- メタ情報 -->
+        <div class="product-meta fade-up" style="--delay: 0.52s">
+          <span class="product-meta-item">全国一律送料 ¥330（税込）</span>
+          <span class="product-meta-item">¥3,000以上のご購入で送料無料</span>
+          <span class="product-meta-item">3〜5営業日以内に発送</span>
+          <span class="product-meta-item">30日以内の返品・交換対応</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Description Section ========= -->
+    <section class="description-section" id="description">
+      <div class="description-inner">
+        <div class="desc-text-col fade-up" style="--delay: 0.1s">
+          <p class="desc-label">about this product</p>
+          <h2 class="desc-heading">( 灯すだけ、でいい。)</h2>
+          <div class="desc-body">
+            <p>
+              hibiキャンドルは、<br />
+              好きな香りに包まれた自分時間を届けます。
+            </p>
+            <p>
+              何かをするときも、何もしないときでも、<br />
+              あなただけのリラックスルーティーンを。
+            </p>
+          </div>
+        </div>
+
+        <div class="fade-up" style="--delay: 0.2s">
+          <p class="desc-label" style="margin-bottom: 28px">specifications</p>
+          <table class="spec-table">
+            <tr>
+              <td>time</td>
+              <td>10分（24本入り）・30分（12本入り）<br>1時間（6本入り）・3時間（2本入り）・6時間（1本入り）</td>
+            </tr>
+            <tr>
+              <td>scents</td>
+              <td>つづく余白：ベルガモット・ホワイトティー・ムスク<br>ほどける夜：ラベンダー・カモミール・アンバー<br>しずかな木陰：ユーカリ・フィグ・ベチバー<br>やわらかい日差し：レモン・ミント・ホワイトムスク</td>
+            </tr>
+           <tr>
+              <td>material</td>
+              <td>ソイワックス・ウッドウィック・IFRA基準準拠香料<br>キャンドルトレイは付属していません。
+              </td>
+            </tr>
+            <tr>
+              <td>safety design</td>
+              <td>安定燃焼・無煙・低スス設計・耐熱ガラス使用</td>
+            </tr>
+            <tr>
+              <td>made in</td>
+              <td>日本</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Philosophy Section ========= -->
+    <section class="philosophy-section" id="philosophy">
+  <canvas class="philosophy-canvas" id="ringCanvas"></canvas>
+  <div class="philosophy-inner">
+    <span class="philosophy-mark fade-up">"</span>
+    <p class="philosophy-text fade-up" style="--delay: 0.12s">
+      炎と、あなたの本音を。<br />
+      向き合う時間を。
+    </p>
+    <p class="philosophy-author fade-up" style="--delay: 0.24s">— hibi, 2026</p>
+  </div>
+</section>
+
+    <!-- ========= Usage Section ========= -->
+    <section class="usage-section" id="usage">
+      <div class="usage-inner">
+        <div class="usage-header fade-up">
+          <p class="usage-label">how to use</p>
+          <h2 class="usage-title">( hibiキャンドルの使い方 )</h2>
+        </div>
+        <div class="usage-steps">
+          <div class="usage-step fade-up" style="--delay: 0.1s">
+            <span class="usage-num">01</span>
+            <h3 class="usage-step-title">1日の終わりに、灯す。</h3>
+            <p class="usage-step-desc">
+              眠る前に。<br />
+              好きな香りを選んで、<br />炎を灯します。
+            </p>
+          </div>
+          <div class="usage-step fade-up" style="--delay: 0.2s">
+            <span class="usage-num">02</span>
+            <h3 class="usage-step-title">音に耳を、澄ます。</h3>
+            <p class="usage-step-desc">
+              目を閉じて、<br />
+              炎が奏でる音に耳を澄ましてみましょう。<br />
+            </p>
+          </div>
+          <div class="usage-step fade-up" style="--delay: 0.3s">
+            <span class="usage-num">03</span>
+            <h3 class="usage-step-title">好きに、過ごす。</h3>
+            <p class="usage-step-desc">
+              ストレッチをしたり、音楽を聞いたり、<br />
+              日々の疲れを癒すリラックスタイムを。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Reviews Section ========= -->
+    <section class="reviews-section" id="reviews">
+      <div class="reviews-inner">
+        <div class="reviews-header fade-up">
+          <div>
+            <p class="reviews-label">reviews</p>
+            <h2 class="reviews-title">( お客様の声 )</h2>
+          </div>
+          <div class="reviews-avg">
+            <div class="reviews-avg-num">4.9</div>
+            <div class="reviews-avg-label">67件のレビュー</div>
+          </div>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card fade-up" style="--delay: 0.1s">
+            <div class="review-stars">
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+            </div>
+            <p class="review-text">
+              寝る前の10分が自分へのご褒美になっています。<br />
+              燃焼時間で選べるのが便利で、リピ買いしてます。
+            </p>
+            <span class="review-author">K.Y. — 20代 / 京都</span>
+          </article>
+          <article class="review-card fade-up" style="--delay: 0.2s">
+            <div class="review-stars">
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star"></span>
+            </div>
+            <p class="review-text">
+              キャンドルの香りがとてもお気に入り。<br />
+              パチパチという燃える音も癒しになっています。
+            </p>
+            <span class="review-author">R.N. — 40代 / 福岡</span>
+          </article>
+          <article class="review-card fade-up" style="--delay: 0.3s">
+            <div class="review-stars">
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+            </div>
+            <p class="review-text">
+              友人のプレゼントとして購入しました。<br />
+              友人にぴったりの香りやサイズを選ぶのが楽しかった。
+            </p>
+            <span class="review-author">S.A. — 30代 / 福岡</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Related Products ========= -->
+    <section class="related-section" id="related">
+      <div class="related-inner">
+        <div class="related-header fade-up">
+          <p class="related-label">recommendation</p>
+          <h2 class="related-title">( あわせてどうぞ )</h2>
+        </div>
+        <div class="related-grid">
+          <article class="related-card fade-up" style="--delay: 0.1s">
+            <a href="products-note.html" class="related-card-link">
+              <div class="related-card-img-wrap">
+                <img src="img/note-hero1.webp" alt="hibiノート">
+                <div class="related-card-overlay"></div>
+              </div>
+              <p class="related-card-name">hibiノート</p>
+              <p class="related-card-price">¥ 1,100</p>
+            </a>
+          </article>
+          <article class="related-card fade-up" style="--delay: 0.2s">
+            <a href="products-lamp.html" class="related-card-link">
+              <div class="related-card-img-wrap">
+              <img src="img/lamp-hero1.webp" alt="hibiランプ">
+                <div class="related-card-overlay"></div>
+              </div>
+              <p class="related-card-name">hibiランプ</p>
+              <p class="related-card-price">¥ 5,100</p>
+            </a>
+          </article>
+          <article class="related-card fade-up" style="--delay: 0.3s">
+            <a href="products-set.html" class="related-card-link">
+              <div class="related-card-img-wrap">
+                <img src="img/set-hero1.webp" alt="hibiスターターセット">
+                <div class="related-card-overlay"></div>
+              </div>
+              <p class="related-card-name">hibi スターターセット</p>
+              <p class="related-card-price">¥ 7,700</p>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Footer ========= -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-logo-col">
+          <a href="index.html" class="footer-logo">( hibi )</a>
+          <p class="footer-tagline">今日を整える、やさしい習慣。</p>
+        </div>
+        <nav class="footer-nav" aria-label="サイトマップ">
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">top</p>
+            <ul>
+              <li><a href="index.html#about">about</a></li>
+              <li><a href="products.html">product</a></li>
+              <li><a href="journal.html">journal</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">membership</p>
+            <ul>
+              <li><a href="membership.html">hibi+</a></li>
+              <li><a href="login.html">login</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">company</p>
+            <ul>
+              <li><a href="#info">info</a></li>
+              <li><a href="#privacypolicy">privacypolicy</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 hibi. All rights reserved.</p>
+        <button class="footer-totop" id="toTop">top ↑</button>
+      </div>
+    </footer>
+
+    <!-- ========= Sticky Bar ========= -->
+    <div class="sticky-bar" id="stickyBar">
+      <span class="sticky-bar-name">hibi キャンドル</span>
+      <span class="sticky-bar-price">¥ 2,200</span>
+      <button class="sticky-bar-btn" id="stickyCartBtn">カートに入れる</button>
+    </div>
+
+    <!-- ========= Toast ========= -->
+    <div class="toast" id="toast">カートに追加しました。</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

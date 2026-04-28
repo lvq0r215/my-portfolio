@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>hibiスターターセット — （hibi）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="hibiスターターセットは、hibiノート・hibiランプ・hibiキャンドルが1つになったプレミアムボックス。はじめてのhibiやプレゼントにおすすめです。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200&family=Noto+Sans+JP:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ========= Navigation ========= -->
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav-logo">（hibi）</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="products.html" class="nav-current">product</a></li>
+        <li><a href="journal.html">journal</a></li>
+        <li><a href="login.html">login</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+    </nav>
+    <div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" id="navDrawerClose" aria-label="メニューを閉じる">
+    <span class="nav-drawer-close-icon"></span>
+  </button>
+  <ul class="nav-drawer-links">
+    <li><a href="#about"        onclick="closeDrawer()">about</a></li>
+    <li><a href="products.html" onclick="closeDrawer()">product</a></li>
+    <li><a href="journal.html"  onclick="closeDrawer()">journal</a></li>
+    <li><a href="login.html"    onclick="closeDrawer()">login</a></li>
+  </ul>
+</div>
+
+    <!-- ========= Breadcrumb ========= -->
+    <div class="pl-breadcrumb" id="plbreadcrumb">
+      <span class="pl-breadcrumb-item"><a href="index.html">top</a></span>
+      <span class="pl-breadcrumb-sep">—</span>
+      <span class="pl-breadcrumb-item"><a href="products.html">product</a></span>
+      <span class="pl-breadcrumb-sep">—</span>
+      <span class="pl-breadcrumb-item current">hibiスターターセット</span>
+    </div>
+
+    <!-- ========= Product Hero ========= -->
+    <section class="product-hero" id="productHero">
+      <!-- 左: ギャラリー -->
+      <div class="product-gallery" id="productGallery">
+        <div class="gallery-main" id="galleryMain">
+          <!-- 画像スロット (実画像は img/hibi-note*.webp に差し替え) -->
+          <div class="gallery-main-img active" id="slide0">
+            <img src="img/set-hero1.webp" alt="hibiスターターセット">
+          </div>
+          <div class="gallery-main-img" id="slide1">
+            <img src="img/set-hero2.webp" alt="hibiスターターセットと日常">
+          </div>
+          <div class="gallery-main-img" id="slide2">
+            <img src="img/set-hero3.webp" alt="hibiスターターセットボックス">
+          </div>
+        </div>
+        <div class="gallery-overlay"></div>
+
+        <!-- サムネイル -->
+        <div class="gallery-thumbs" id="galleryThumbs">
+          <div class="gallery-thumb active" data-index="0">
+            <div class="gallery-thumb-inner"><img src="img/set-hero1.webp" alt="hibiスターターセット"></div>
+          </div>
+          <div class="gallery-thumb" data-index="1">
+            <div class="gallery-thumb-inner"><img src="img/set-hero2.webp" alt="hibiスターターセットと日常"></div>
+          </div>
+          <div class="gallery-thumb" data-index="2">
+            <div class="gallery-thumb-inner"><img src="img/set-hero3.webp" alt="hibiスターターセットボックス"></div>
+          </div>
+        </div>
+        <div class="gallery-counter" id="galleryCounter">01 / 03</div>
+      </div>
+
+      <!-- 右: 商品情報 -->
+      <div class="product-info" id="productInfo">
+        <div class="product-tag fade-up" style="--delay: 0.1s">premium box</div>
+
+        <h1 class="product-name fade-up" style="--delay: 0.18s">hibi スターターセット</h1>
+
+        <p class="product-tagline fade-up" style="--delay: 0.28s">
+          hibiノート・hibiランプ・hibiキャンドルが1つになったプレミアムボックス。<br />
+          はじめてのhibiやプレゼントにおすすめです。
+        </p>
+
+        <div class="product-divider fade-up" style="--delay: 0.32s"></div>
+
+        <div class="product-price-wrap fade-up" style="--delay: 0.36s">
+          <span class="product-price">¥ 7,700</span>
+          <span class="product-price-label">JPY</span>
+          <span class="product-price-tax">（税込）</span>
+        </div>
+
+        <!-- 数量 -->
+        <div class="qty-wrap fade-up" style="--delay: 0.44s">
+          <button class="qty-btn" id="qtyMinus">−</button>
+          <span class="qty-num" id="qtyNum">1</span>
+          <button class="qty-btn" id="qtyPlus">＋</button>
+        </div>
+
+        <!-- CTA -->
+        <div class="product-cta fade-up" style="--delay: 0.48s">
+          <button class="btn-cart" id="cartBtn"><span>カートに入れる</span></button>
+          <button class="btn-wishlist" id="wishlistBtn">お気に入りに追加する</button>
+        </div>
+
+        <!-- メタ情報 -->
+        <div class="product-meta fade-up" style="--delay: 0.52s">
+          <span class="product-meta-item">全国一律送料 ¥330（税込）</span>
+          <span class="product-meta-item">¥3,000以上のご購入で送料無料</span>
+          <span class="product-meta-item">3〜5営業日以内に発送</span>
+          <span class="product-meta-item">30日以内の返品・交換対応</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Description Section ========= -->
+    <section class="description-section" id="description">
+      <div class="description-inner">
+        <div class="desc-text-col fade-up" style="--delay: 0.1s">
+          <p class="desc-label">about this product</p>
+          <h2 class="desc-heading">( hibiを、あなたの日々に。)</h2>
+          <div class="desc-body">
+            <p>
+              hibiスターターセットで、<br />
+              1日の終わりをhibiと一緒に。
+            </p>
+            <p>
+              明日を完全に好きになれなくてもいい。<br />
+              それでも、少しだけ呼吸が深くなる時間を。
+            </p>
+          </div>
+        </div>
+
+        <div class="fade-up" style="--delay: 0.2s">
+          <p class="desc-label" style="margin-bottom: 28px">specifications</p>
+          <table class="spec-table">
+            <div class="desc-body">
+              <p>hibiノート</p>
+            </div>
+            <tr>
+              <td>size</td>
+              <td>A6（105 × 148mm）<br />A5（148 × 210mm）</td>
+            </tr>
+            <tr>
+              <td>pages</td>
+              <td>185ページ（365日分 + 巻末メモ）</td>
+            </tr>
+            <tr>
+              <td>paper</td>
+              <td>淡クリーム色 上質紙 70kg</td>
+            </tr>
+            <tr>
+              <td>cover</td>
+              <td>マットPP加工クロス表紙</td>
+            </tr>
+            <tr>
+              <td>binding</td>
+              <td>糸綴じ製本（フラット開き対応）</td>
+            </tr>
+            <tr>
+              <td>color</td>
+              <td>フォググレー / サンドベージュ</td>
+            </tr>
+            <tr>
+              <td>made in</td>
+              <td>日本</td>
+            </tr>
+          </table>
+        </div>
+        <div class="fade-up" style="--delay: 0.2s">
+          <p class="desc-label" style="margin-bottom: 28px"></p>
+          <table class="spec-table">
+            <div class="desc-body">
+              <p>hibiランプ</p>
+            </div>
+            <tr>
+              <td>size</td>
+              <td>直径100mm × 高さ120mm</td>
+            </tr>
+            <tr>
+              <td>weight</td>
+              <td>300g</td>
+            </tr>
+             <tr>
+              <td>mode</td>
+              <td>常灯モード・明滅モード</td>
+            </tr>
+            <tr>
+              <td>timer</td>
+              <td>10〜60分（10分ごと）・2時間・3時間</td>
+            </tr>
+            <tr>
+              <td>power</td>
+              <td>USB Type-C充電</td>
+            </tr>
+            <tr>
+              <td>material</td>
+              <td>フロスト加工ガラス・天然木マット仕上げ</td>
+            </tr>
+            <tr>
+              <td>safety design</td>
+              <td>発熱抑制設計・自動電源OFF（3時間未操作時）</td>
+            </tr>
+            <tr>
+              <td>made in</td>
+              <td>日本</td>
+            </tr>
+          </table>
+        </div>
+        <div class="fade-up" style="--delay: 0.2s">
+          <p class="desc-label" style="margin-bottom: 28px"></p>
+          <table class="spec-table">
+            <div class="desc-body">
+              <p>hibiキャンドル</p>
+            </div>
+            <tr>
+              <td>time</td>
+              <td>10分（24本入り）・30分（12本入り）<br>1時間（6本入り）・3時間（2本入り）・6時間（1本入り）</td>
+            </tr>
+            <tr>
+              <td>scents</td>
+              <td>つづく余白：ベルガモット・ホワイトティー・ムスク<br>ほどける夜：ラベンダー・カモミール・アンバー<br>しずかな木陰：ユーカリ・フィグ・ベチバー<br>やわらかい日差し：レモン・ミント・ホワイトムスク</td>
+            </tr>
+           <tr>
+              <td>material</td>
+              <td>ソイワックス・ウッドウィック・IFRA基準準拠香料</td>
+            </tr>
+            <tr>
+              <td>safety design</td>
+              <td>安定燃焼・無煙・低スス設計・耐熱ガラス使用</td>
+            </tr>
+            <tr>
+              <td>made in</td>
+              <td>日本</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+   <!-- ========= Philosophy Section ========= -->
+    <section class="philosophy-section" id="philosophy">
+  <canvas class="philosophy-canvas" id="ringCanvas"></canvas>
+  <div class="philosophy-inner">
+    <span class="philosophy-mark fade-up">"</span>
+    <p class="philosophy-text fade-up" style="--delay: 0.12s">
+      うまくいかなかった日も、<br />
+      そのままでいい。<br />
+      すこしだけ呼吸が深くなる時間を。
+    </p>
+    <p class="philosophy-author fade-up" style="--delay: 0.24s">— hibi, 2026</p>
+  </div>
+</section>
+
+    <!-- ========= Usage Section ========= -->
+    <section class="usage-section" id="usage">
+      <div class="usage-inner">
+        <div class="usage-header fade-up">
+          <p class="usage-label">how to use</p>
+          <h2 class="usage-title">( hibiスターターセットの使い方 )</h2>
+        </div>
+        <div class="usage-steps">
+          <div class="usage-step fade-up" style="--delay: 0.1s">
+            <span class="usage-num">01</span>
+            <h3 class="usage-step-title">あたたかな光を、炎を、灯す。</h3>
+            <p class="usage-step-desc">
+              hibiランプとhibiキャンドルに。<br />
+              やさしい灯火と香りに包まれながら、<br />今日を思い返してみてください。
+            </p>
+          </div>
+          <div class="usage-step fade-up" style="--delay: 0.2s">
+            <span class="usage-num">02</span>
+            <h3 class="usage-step-title">ゆっくりと、ひらく。</h3>
+            <p class="usage-step-desc">
+              hibiノートに。<br />
+              いまの気持ちや今日あったこと、<br />
+              どんなことでも、思いのままに。
+            </p>
+          </div>
+          <div class="usage-step fade-up" style="--delay: 0.3s">
+            <span class="usage-num">03</span>
+            <h3 class="usage-step-title">そっと、とじる。</h3>
+            <p class="usage-step-desc">
+              hibiのプロダクトに包まれて、<br />
+              1日をゆっくりとじましょう。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Reviews Section ========= -->
+    <section class="reviews-section" id="reviews">
+      <div class="reviews-inner">
+        <div class="reviews-header fade-up">
+          <div>
+            <p class="reviews-label">reviews</p>
+            <h2 class="reviews-title">( お客様の声 )</h2>
+          </div>
+          <div class="reviews-avg">
+            <div class="reviews-avg-num">4.7</div>
+            <div class="reviews-avg-label">27件のレビュー</div>
+          </div>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card fade-up" style="--delay: 0.1s">
+            <div class="review-stars">
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+            </div>
+            <p class="review-text">
+              私がハマっているhibiを友人にプレゼントしました。<br />
+              休日に友人と集まって、カフェでhibiノートを書くこともあります。
+            </p>
+            <span class="review-author">T.M. — 30代 / 東京</span>
+          </article>
+          <article class="review-card fade-up" style="--delay: 0.2s">
+            <div class="review-stars">
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+            </div>
+            <p class="review-text">
+              春から新生活で、母がプレゼントしてくれました。<br />
+              シンプルなデザインがお気に入り。
+            </p>
+            <span class="review-author">S.H. — 20代 / 愛知</span>
+          </article>
+          <article class="review-card fade-up" style="--delay: 0.3s">
+            <div class="review-stars">
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star filled"></span>
+              <span class="star"></span>
+            </div>
+            <p class="review-text">
+              同期がおすすめしてくれて買ってみました。<br />
+              自分時間が充実しています。
+            </p>
+            <span class="review-author">M.I. — 30代 / 鹿児島
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Related Products ========= -->
+    <section class="related-section" id="related">
+      <div class="related-inner">
+        <div class="related-header fade-up">
+          <p class="related-label">recommendation</p>
+          <h2 class="related-title">( あわせてどうぞ )</h2>
+        </div>
+        <div class="related-grid">
+          <article class="related-card fade-up" style="--delay: 0.1s">
+            <a href="products-note.html" class="related-card-link">
+              <div class="related-card-img-wrap">
+                <img src="img/note-hero1.webp" alt="hibiノート">
+                <div class="related-card-overlay"></div>
+              </div>
+              <p class="related-card-name">hibiノート</p>
+              <p class="related-card-price">¥ 1,100</p>
+            </a>
+          </article>
+          <article class="related-card fade-up" style="--delay: 0.2s">
+            <a href="products-lamp.html" class="related-card-link">
+              <div class="related-card-img-wrap">
+                <img src="img/lamp-hero1.webp" alt="hibiランプ">
+                <div class="related-card-overlay"></div>
+              </div>
+              <p class="related-card-name">hibiランプ</p>
+              <p class="related-card-price">¥ 5,100</p>
+            </a>
+          </article>
+          <article class="related-card fade-up" style="--delay: 0.3s">
+            <a href="products-candle.html" class="related-card-link">
+              <div class="related-card-img-wrap">
+              <img src="img/candle-hero1.webp" alt="hibiキャンドル">
+                <div class="related-card-overlay"></div>
+              </div>
+              <p class="related-card-name">hibi キャンドル</p>
+              <p class="related-card-price">¥ 2,200</p>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= Footer ========= -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-logo-col">
+          <a href="index.html" class="footer-logo">( hibi )</a>
+          <p class="footer-tagline">今日を整える、やさしい習慣。</p>
+        </div>
+        <nav class="footer-nav" aria-label="サイトマップ">
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">top</p>
+            <ul>
+              <li><a href="index.html#about">about</a></li>
+              <li><a href="products.html">product</a></li>
+              <li><a href="journal.html">journal</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">membership</p>
+            <ul>
+              <li><a href="membership.html">hibi+</a></li>
+              <li><a href="login.html">login</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">company</p>
+            <ul>
+              <li><a href="#info">info</a></li>
+              <li><a href="#privacypolicy">privacypolicy</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 hibi. All rights reserved.</p>
+        <button class="footer-totop" id="toTop">top ↑</button>
+      </div>
+    </footer>
+
+    <!-- ========= Sticky Bar ========= -->
+    <div class="sticky-bar" id="stickyBar">
+      <span class="sticky-bar-name">hibi スターターセット</span>
+      <span class="sticky-bar-price">¥ 7,700</span>
+      <button class="sticky-bar-btn" id="stickyCartBtn">カートに入れる</button>
+    </div>
+
+    <!-- ========= Toast ========= -->
+    <div class="toast" id="toast">カートに追加しました。</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

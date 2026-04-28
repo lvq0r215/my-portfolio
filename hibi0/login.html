@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>login — （hibi）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200&family=Noto+Sans+JP:wght@200;300;400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ========= Navigation ========= -->
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav-logo">（hibi）</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="products.html">product</a></li>
+        <li><a href="journal.html">journal</a></li>
+        <li><a href="login.html" class="nav-current">login</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav-drawer" id="navDrawer">
+      <button class="nav-drawer-close" id="navDrawerClose" aria-label="メニューを閉じる">
+        <span class="nav-drawer-close-icon"></span>
+      </button>
+      <ul class="nav-drawer-links">
+        <li><a href="index.html#about" onclick="closeDrawer()">about</a></li>
+        <li><a href="products.html"    onclick="closeDrawer()">product</a></li>
+        <li><a href="journal.html"     onclick="closeDrawer()">journal</a></li>
+        <li><a href="membership.html"  onclick="closeDrawer()">hibi+</a></li>
+      </ul>
+    </div>
+
+    <!-- ========= メインレイアウト ========= -->
+    <div class="page">
+
+      <!-- Left Panel -->
+      <div class="panel-left">
+        <div class="left-content">
+          <p class="left-logo">membership</p>
+          <p class="left-tagline">今日を、<br />つづる場所。</p>
+          <p class="left-desc">ひとつひとつの夜を、<br />ていねいに重ねていくために。<br />hibiはあなたのそばに、<br />静かにあります。</p>
+          <div class="plan-card">
+            <p class="plan-label">hibi+ membership</p>
+            <p class="plan-name">hibi+</p>
+            <p class="plan-price">¥480 / 月</p>
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-feature-dot" aria-hidden="true"></span><span>日記の無制限保存</span></li>
+              <li class="plan-feature"><span class="plan-feature-dot" aria-hidden="true"></span><span>月末PDF化・年1回冊子郵送</span></li>
+              <li class="plan-feature"><span class="plan-feature-dot" aria-hidden="true"></span><span>限定プロダクトの先行購入・会員割引</span></li>
+              <li class="plan-feature"><span class="plan-feature-dot" aria-hidden="true"></span><span>瞑想・音声コンテンツへのアクセス</span></li>
+            </ul>
+            <a href="membership.html" class="plan-detail-link">hibi+ について詳しく →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="panel-right">
+        <div class="form-wrap">
+          <div class="tab-row">
+            <button class="tab-btn active" id="tabLogin"    onclick="switchTab('login')">login</button>
+            <button class="tab-btn"        id="tabRegister" onclick="switchTab('register')">new member</button>
+          </div>
+
+          <!-- Login form -->
+          <div class="form-panel active" id="panelLogin">
+            <div class="field">
+              <label class="field-label" for="loginEmail">email</label>
+              <input class="field-input" type="email" id="loginEmail" placeholder="your@email.com" autocomplete="email" />
+              <p class="field-error" id="loginEmailErr">メールアドレスを入力してください。</p>
+            </div>
+            <div class="field">
+              <label class="field-label" for="loginPass">password</label>
+              <input class="field-input" type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password" />
+              <button type="button" class="field-toggle" id="loginPassToggle" onclick="togglePass('loginPass','loginPassToggle')">show</button>
+              <p class="field-error" id="loginPassErr">パスワードを入力してください。</p>
+            </div>
+            <label class="check-row" onclick="toggleCheck('rememberCheck')">
+              <span class="check-box" id="rememberCheck"></span>
+              <span class="check-label">ログイン状態を保持する</span>
+            </label>
+            <button class="btn-main" onclick="handleLogin()"><span>ログイン</span></button>
+            <button class="form-link" onclick="openReset()"><span>パスワードを忘れた方</span></button>
+            <div class="divider">
+              <span class="divider-line"></span>
+              <span class="divider-text">or</span>
+              <span class="divider-line"></span>
+            </div>
+            <p class="form-note">まだ会員でない方は<br /><button class="form-link form-link--inline" onclick="switchTab('register')"><span>新規登録へ</span></button></p>
+          </div>
+
+          <!-- Register form -->
+          <div class="form-panel" id="panelRegister">
+            <p class="plan-select-label">choose your plan</p>
+            <div class="plan-select">
+              <div class="plan-opt" id="planFree" onclick="selectPlan('free')">
+                <p class="plan-opt-name">member</p>
+                <p class="plan-opt-price">¥0</p>
+              </div>
+              <div class="plan-opt selected" id="planPlus" onclick="selectPlan('plus')">
+                <span class="plan-opt-badge">selected</span>
+                <p class="plan-opt-name">hibi+</p>
+                <p class="plan-opt-price">¥480 / 月</p>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="regEmail">email</label>
+              <input class="field-input" type="email" id="regEmail" placeholder="your@email.com" autocomplete="email" />
+              <p class="field-error" id="regEmailErr">メールアドレスを入力してください。</p>
+            </div>
+            <div class="field">
+              <label class="field-label" for="regPass">password</label>
+              <input class="field-input" type="password" id="regPass" placeholder="8文字以上" autocomplete="new-password" />
+              <button type="button" class="field-toggle" id="regPassToggle" onclick="togglePass('regPass','regPassToggle')">show</button>
+              <p class="field-error" id="regPassErr">8文字以上のパスワードを入力してください。</p>
+            </div>
+            <div class="field field--last">
+              <label class="field-label" for="regPassConf">confirm password</label>
+              <input class="field-input" type="password" id="regPassConf" placeholder="確認のため再度入力" autocomplete="new-password" />
+              <p class="field-error" id="regPassConfErr">パスワードが一致しません。</p>
+            </div>
+            <label class="check-row" onclick="toggleCheck('termsCheck')">
+              <span class="check-box" id="termsCheck"></span>
+              <span class="check-label">利用規約・プライバシーポリシーに同意する</span>
+            </label>
+            <button class="btn-main" onclick="handleRegister()"><span>登録する</span></button>
+            <p class="form-note">すでに会員の方は<button class="form-link form-link--inline" onclick="switchTab('login')"><span>ログインへ</span></button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========= パスワードリセット モーダル ========= -->
+    <div class="reset-overlay" id="resetOverlay">
+      <div class="reset-card">
+        <button class="reset-close" onclick="closeReset()">close ×</button>
+        <p class="reset-title">password reset</p>
+        <p class="reset-desc">ご登録のメールアドレスを入力してください。<br />パスワード再設定のご案内をお送りします。</p>
+        <div class="field">
+          <label class="field-label" for="resetEmail">email</label>
+          <input class="field-input" type="email" id="resetEmail" placeholder="your@email.com" />
+        </div>
+        <button class="btn-main" onclick="handleReset()"><span>送信する</span></button>
+        <p class="reset-msg" id="resetMsg"></p>
+      </div>
+    </div>
+
+    <!-- ========= Footer ========= -->
+    <footer class="footer" id="footer">
+      <div class="footer-top">
+        <div class="footer-logo-col">
+          <a href="index.html" class="footer-logo">( hibi )</a>
+          <p class="footer-tagline">今日を整える、やさしい習慣。</p>
+        </div>
+        <nav class="footer-nav" aria-label="サイトマップ">
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">top</p>
+            <ul>
+              <li><a href="index.html#about">about</a></li>
+              <li><a href="products.html">product</a></li>
+              <li><a href="journal.html">journal</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">membership</p>
+            <ul>
+              <li><a href="membership.html">hibi+</a></li>
+              <li><a href="login.html">login</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">company</p>
+            <ul>
+              <li><a href="#info">info</a></li>
+              <li><a href="#privacypolicy">privacy policy</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 hibi. All rights reserved.</p>
+        <button type="button" class="footer-totop" id="toTop">top ↑</button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

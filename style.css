@@ -42,6 +42,20 @@ img {
   max-width: 100%;
 }
 
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  display: block;        /* ← 追加 */
+  margin: 0;             /* ← margin-bottom:-1px を変更 */
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 60px;          /* ← viewBoxの高さ60に合わせる */
+}
+
 /* ─── Header ─── */
 header {
   position: sticky;
@@ -193,7 +207,7 @@ nav a:hover::after {
   cursor: pointer;
 }
 
-/* ─── Hero ─── */
+/* ─── Hero ─── 
 .hero {
   padding: 40px 48px 56px;
 }
@@ -207,6 +221,190 @@ nav a:hover::after {
 .hero-inner.visible {
   opacity: 1;
   transform: translateY(0);
+}*/
+
+/* ════════════════════════════════════
+   ヒーロー CSS
+   ════════════════════════════════════ */
+
+/* ── ヒーローセクション外枠 ── */
+.hero {
+  padding: 40px 48px 56px;
+}
+
+/* ── hero-inner ── */
+.hero-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 620px;
+
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.9s var(--ease) 0.1s, transform 0.9s var(--ease) 0.1s;
+}
+
+.hero-inner.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── hero-stage ── */
+.hero-stage {
+  position: relative;
+  width: min(600px, 72vw);
+}
+
+/* ── キャッチコピー共通 ──
+   left / right は JS が動的にセット */
+.hero-copy {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: var(--c-text);
+  line-height: 1;
+  font-size: clamp(16px, 1.2vw, 24px);
+
+  /* JS が位置をセットするまで非表示 */
+  visibility: hidden;
+}
+
+.hero-copy.ready {
+  visibility: visible;
+}
+
+/* ── レスポンシブ（font-size のみ。位置は JS が管理） ── */
+@media (max-width: 900px) {
+  .hero-inner { min-height: 520px; }
+  .hero-copy  { font-size: clamp(14px, 1.6vw, 22px); }
+}
+
+@media (max-width: 600px) {
+  .hero-inner { min-height: 400px; }
+  .hero-copy  { font-size: clamp(8px, 2.3vw, 14px); letter-spacing: 0.12em; }
+}
+
+@media (max-width: 360px) {
+  .hero-copy { font-size: 9px; letter-spacing: 0.08em; }
+}
+
+/* ── 雲画像（背面） ── */
+.hero-cloud {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+}
+
+.hero-cloud img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* cloudy.png が黒背景の場合: 乗算で白背景に馴染ませる */
+  mix-blend-mode: multiply;
+}
+
+/* ── 写真共通 ── */
+.hero-photo {
+  position: absolute;
+  z-index: 1; /* 雲の前面 */
+  overflow: hidden;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.12);
+  background: var(--c-border);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── 写真 6 枚の個別サイズ・位置
+   参考画像のレイアウトに合わせています
+   雲の幅 = 100%、高さ ≈ 62% として % 指定
+   ── */
+
+/* 左上（縦長気味） */
+.hero-photo--1 {
+  width: 23%;
+  aspect-ratio: 4 / 3;
+  top: 2%;
+  left: 8%;
+}
+/* 上中央やや右 */
+.hero-photo--2 {
+  width: 13%;
+  aspect-ratio: 1 / 1;
+  top: 6%;
+  left: 60%;
+}
+/* 右上（縦長） */
+.hero-photo--3 {
+  width: 25%;
+  aspect-ratio: 5 / 4.5;
+  top: 35%;
+  left: 35%;
+}
+/* 左下 */
+.hero-photo--4 {
+  width: 13%;
+  aspect-ratio: 3 / 4;
+  top: 25%;
+  right: 8%;
+}
+/* 下中央 */
+.hero-photo--5 {
+  width: 16%;
+  aspect-ratio: 4 / 3.5;
+  bottom: 13%;
+  left: 10%;
+}
+/* 右下 */
+.hero-photo--6 {
+  width: 19%;
+  aspect-ratio: 4 / 3;
+  bottom: 4%;
+  right: 15%;
+}
+
+/* ── フロートアニメーション（3種類でずらす） ── */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-16px); }
+}
+
+.float-a { animation: floatA 6s   ease-in-out infinite; }
+.float-b { animation: floatB 5s   ease-in-out infinite 0.6s; }
+.float-c { animation: floatC 7s   ease-in-out infinite 1.2s; }
+
+/* ── レスポンシブ ── */
+@media (max-width: 768px) {
+  .hero {
+    padding: 24px 20px 40px;
+  }
+
+  .hero-inner {
+    min-height: 480px;
+  }
+
+  /*.hero-copy {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }*/
 }
 
 /* ─── Section Common ─── */
@@ -242,9 +440,42 @@ nav a:hover::after {
   line-height: 1.3;
 }
 
+strong {
+  font-weight: 600;
+}
+
+.line {
+  text-decoration: underline;
+  text-underline-offset: 5px; /* 線と文字の距離 */
+  text-decoration-thickness: 1px;
+}
+
+.line-wave {
+  position: relative;
+}
+
+.line-wave::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px; /* 少し下げる */
+  width: 100%;
+  height: 16px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 20'%3E%3Cpath d='M0 10 C10 -2 20 -2 30 10 C40 22 50 22 60 10 C70 -2 80 -2 90 10 C100 22 110 22 120 10' fill='none' stroke='%231a1a1a' stroke-width='3'/%3E%3C/svg%3E");
+
+  background-repeat: repeat-x;
+  background-size: 30px 16px; /* ← 波長短く */
+}
+
+.marker {
+  background: linear-gradient(transparent 60%, rgba(160, 170, 140, 0.35) 60%);
+}
+
 /* ─── Works ─── */
 #works {
   border-top: 1px solid var(--c-border);
+  border-bottom: none;
 }
 
 .works-category {
@@ -329,7 +560,6 @@ nav a:hover::after {
 
 /* ─── About ─── */
 #about {
-  border-top: 1px solid var(--c-border);
   background: var(--c-bg);
 }
 
@@ -343,7 +573,6 @@ nav a:hover::after {
 
 .about-photo-placeholder {
   width: 400px;
-  height: 500px;
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
@@ -420,9 +649,7 @@ nav a:hover::after {
 }
 
 /* ─── Contact ─── */
-#contact {
-  border-top: 1px solid var(--c-border);
-}
+#contact {}
 
 .contact-inner {
   max-width: 600px;
@@ -546,13 +773,47 @@ footer {
 .footer-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .footer-copy {
   font-size: 11px;
   color: var(--c-text-sub);
   letter-spacing: 0.04em;
+}
+
+/* アイコン配置 */
+.social-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* SVG共通 */
+.icon {
+  width: 25px;
+  height: 25px;
+  stroke: var(--c-text-sub);
+  stroke-width: 1.2;
+  fill: none;
+  transition: 0.3s;
+}
+
+/* noteの文字だけ調整 */
+.icon text {
+  fill: var(--c-text-sub);
+  stroke: none;
+  font-weight: 900;
+}
+
+/* ホバー（控えめ） */
+.social-links a:hover .icon {
+  stroke: var(--c-text);
+  transform: translateY(-3px);
+}
+
+.social-links a:hover .icon text {
+  fill: var(--c-text);
 }
 
 
@@ -593,7 +854,7 @@ footer {
 }
 
 .work-hero-img-placeholder--hibi {
-  background-image: url(img/hibi-gs.webp);
+  background-image: url(img/hibi.webp);
 }
 
 .work-hero-img-placeholder--portfolio {
@@ -1009,6 +1270,65 @@ footer {
   pointer-events: none;
 }
 
+/* ─── Work All List — カーソル追従画像 ─── */
+.work-all-cursor-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate(-50%, -60%) scale(0.88) rotate(-3deg);
+  transition: none;
+  will-change: transform, opacity;
+}
+
+.work-all-cursor-img.visible {
+  animation: cursorAppear 0.7s var(--ease) forwards;
+}
+
+@keyframes cursorAppear {
+  0%   {
+    opacity: 0;
+    transform: translate(calc(-50% + 2px),  calc(-60% + 3px))  rotate(-1.5deg) scale(0.92);
+  }
+  30%  {
+    opacity: 1;
+    transform: translate(calc(-50% - 1px),  calc(-60% - 2px))  rotate(0.8deg)  scale(1.01);
+  }
+  60%  {
+    transform: translate(calc(-50% + 1px),  calc(-60% + 1px))  rotate(-0.4deg) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -60%) rotate(0deg) scale(1);
+  }
+}
+
+.work-all-cursor-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ホバー中はシステムカーソルを非表示 */
+.work-all-item:hover {
+  cursor: none;
+}
+
+/* タブレット・スマホでは追従画像と cursor: none を無効化 */
+@media (max-width: 1024px) {
+  .work-all-cursor-img {
+    display: none;
+  }
+
+  .work-all-item:hover {
+    cursor: auto;
+  }
+}
+
 /* ─── Reveal animation ─── */
 .reveal {
   opacity: 0;
@@ -1126,21 +1446,103 @@ footer {
   font-size: 11px;
   letter-spacing: 0.2em;
   color: var(--c-text-sub);
-  margin-bottom: 28px;
+  margin-bottom: 35px;
 }
 
 .intro-text {
   font-size: 13.5px;
   line-height: 2;
   color: #333;
-  margin-bottom: 20px;
 }
 
 .intro-divider {
   font-size: 18px;
   letter-spacing: 0.3em;
   color: var(--c-border);
-  margin: 28px 0;
+  margin: 20px 0;
+}
+
+/* 名前＋アイコン横並び */
+.intro-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* アイコン群 */
+.intro-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 7px;
+}
+
+/* SVGアイコン */
+.icon {
+  width: 22px;
+  height: 22px;
+  stroke: var(--c-text-sub);
+  stroke-width: 1.2;
+  fill: none;
+  transition: 0.3s;
+}
+
+.icon text {
+  fill: var(--c-text-sub);
+  stroke: none;
+  font-weight: 900;
+}
+
+/* 吹き出しラップ */
+.icon-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* 楕円吹き出し */
+.tooltip {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  font-size: 11px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--c-bg-card);
+  color: var(--c-text);
+  border: 1px solid var(--c-border);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease 0.05s;
+}
+
+/* 吹き出しのしっぽ */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--c-bg-card);
+  border-left: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+}
+
+/* ホバー時 */
+.icon-wrap:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.icon-wrap:hover .icon {
+  stroke: var(--c-text);
+  transform: translateY(-3px);
+}
+
+.icon-wrap:hover .icon text {
+  fill: var(--c-text);
 }
 
 /* ─── Values ─── */
@@ -1532,6 +1934,14 @@ footer {
     gap: 8px;
   }
 
+.tooltip {
+  display: none;
+}
+
+.tooltip::after {
+  content: none;
+}
+
   .work-hero-caption {
     padding: 20px 20px 0;
   }
@@ -1637,6 +2047,14 @@ footer {
     color: #fff;
     background-color: var(--c-text);
   }
+
+  .tooltip {
+  display: none;
+}
+
+.tooltip::after {
+  content: none;
+}
 }
 
 @media (prefers-reduced-motion: reduce) {

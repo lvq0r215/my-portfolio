@@ -39,6 +39,13 @@ document.querySelectorAll('.nav-mobile-link').forEach(link => {
 });
 
 // ─── Hero entrance（index.html） ───
+/* ════════════════════════════════════
+   ヒーロー JavaScript
+   script.js の既存ヒーロー入場アニメーション部分
+   （heroInner 関連）をこちらに置き換えてください
+   ════════════════════════════════════ */
+
+// ─── Hero entrance ───
 const heroInner = document.getElementById('heroInner');
 if (heroInner) {
   setTimeout(() => {
@@ -148,3 +155,114 @@ if (form && success) {
     success.classList.add('show');
   });
 }
+
+/* ════════════════════════════════════
+   キャッチコピー 中央配置 JS
+   script.js の末尾に追記してください。
+   （以前追記した hero-copy 関連の JS があれば
+   　そちらはすべて削除してからこちらを追記）
+   ════════════════════════════════════ */
+
+(function () {
+  const inner     = document.getElementById('heroInner');
+  const cloudImg  = inner && inner.querySelector('.hero-cloud img');
+  const copyLeft  = inner && inner.querySelector('.hero-copy--left');
+  const copyRight = inner && inner.querySelector('.hero-copy--right');
+
+  if (!inner || !cloudImg || !copyLeft || !copyRight) return;
+
+  function positionCopies() {
+    const innerRect = inner.getBoundingClientRect();
+    const cloudRect = cloudImg.getBoundingClientRect();
+
+    /* inner 左端を基準とした雲の左端・右端 */
+    const cloudL = cloudRect.left  - innerRect.left;   // 雲左端（innerからの距離）
+    const cloudR = innerRect.right - cloudRect.right;  // 雲右端（innerからの距離）
+
+    /* 左コピー：画面左端〜雲左端の中央
+       inner は .hero の padding 内に収まるので、
+       innerRect.left = .hero の padding-left ぶんだけ画面左端からずれている */
+    const gapLeftTotal  = cloudRect.left;              // 画面左端〜雲左端（px）
+    const gapRightTotal = window.innerWidth - cloudRect.right; // 雲右端〜画面右端（px）
+
+    /* 中央 x 座標（画面基準） → inner 基準に変換 */
+    const centerLeftScreen  = gapLeftTotal  / 2;
+    const centerRightScreen = window.innerWidth - gapRightTotal / 2;
+
+    const centerLeftInner  = centerLeftScreen  - innerRect.left;
+    const centerRightInner = centerRightScreen - innerRect.left;
+
+    /* left プロパティで配置（テキストの水平中心を合わせる） */
+    copyLeft.style.left      = centerLeftInner  + 'px';
+    copyLeft.style.right     = 'auto';
+    copyLeft.style.transform = 'translate(-50%, -50%)';
+
+    copyRight.style.left     = centerRightInner + 'px';
+    copyRight.style.right    = 'auto';
+    copyRight.style.transform = 'translate(-50%, -50%)';
+
+    /* 表示 */
+    copyLeft.classList.add('ready');
+    copyRight.classList.add('ready');
+  }
+
+  /* 雲画像ロード後に実行 */
+  function init() {
+    positionCopies();
+    window.addEventListener('resize', positionCopies);
+  }
+
+  if (cloudImg.complete && cloudImg.naturalWidth > 0) {
+    init();
+  } else {
+    cloudImg.addEventListener('load', init);
+    setTimeout(init, 1000); // フォールバック
+  }
+})();
+
+// ─── Work All List — カーソル追従画像 ───
+(function () {
+  const cursorBox = document.getElementById('workCursorImg');
+  const cursorImg = document.getElementById('workCursorImgEl');
+  if (!cursorBox || !cursorImg) return;
+
+ if (window.innerWidth <= 1024) return;
+
+  let mouseX = 0, mouseY = 0;
+  let rafId = null;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (cursorBox.classList.contains('visible')) {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        cursorBox.style.left = mouseX + 'px';
+        cursorBox.style.top  = mouseY + 'px';
+      });
+    }
+  }, { passive: true });
+
+  document.querySelectorAll('.work-all-item a[data-img]').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      const src = link.dataset.img;
+      if (!src) return;
+
+      // 一度クラスを外してアニメーションをリセット
+      cursorBox.classList.remove('visible');
+      cursorImg.src = src;
+      cursorBox.style.left = mouseX + 'px';
+      cursorBox.style.top  = mouseY + 'px';
+
+      // 次フレームで visible を付与して出現アニメを確実に走らせる
+      requestAnimationFrame(() => {
+        cursorBox.classList.add('visible');
+      });
+    });
+
+    link.addEventListener('mouseleave', () => {
+      cursorBox.classList.remove('visible');
+    });
+  });
+})();

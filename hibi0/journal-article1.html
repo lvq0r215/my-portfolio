@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>hibiができるまでのこと — （hibi）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="すぐかたちにならなかった、名前をつけるまでのこれまで。「hibi」と「日々」。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200&family=Noto+Sans+JP:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ========= Navigation ========= -->
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav-logo">（hibi）</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="products.html">product</a></li>
+        <li><a href="journal.html" class="nav-current">journal</a></li>
+        <li><a href="login.html">login</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-drawer" id="navDrawer">
+      <button class="nav-drawer-close" id="navDrawerClose" aria-label="メニューを閉じる">
+        <span class="nav-drawer-close-icon"></span>
+      </button>
+      <ul class="nav-drawer-links">
+        <li><a href="#about"        onclick="closeDrawer()">about</a></li>
+        <li><a href="products.html" onclick="closeDrawer()">product</a></li>
+        <li><a href="journal.html"  onclick="closeDrawer()">journal</a></li>
+        <li><a href="login.html"    onclick="closeDrawer()">login</a></li>
+      </ul>
+    </div>
+
+    <!-- ========= Article Hero ========= -->
+    <header class="ja-hero" id="jaHero">
+      <div class="ja-hero-img-wrap">
+        <img src="img/journal1.webp" alt="hibiができるまでのこと" class="ja-hero-img" id="jaHeroImg" />
+        <div class="ja-hero-overlay"></div>
+      </div>
+      <div class="ja-hero-content">
+        <div class="ja-hero-meta fade-up">
+          <span class="ja-cat">hibi</span>
+          <span class="ja-sep">—</span>
+          <span class="ja-read-time">3 min read</span>
+          <span class="ja-sep">—</span>
+          <span class="ja-date">2026.02.01</span>
+        </div>
+        <h1 class="ja-hero-title fade-up" style="--delay: 0.1s">
+          hibiができるまでのこと
+        </h1>
+        <p class="ja-hero-lead fade-up" style="--delay: 0.22s">
+          すぐかたちにならなかった、名前をつけるまでのこれまで。<br>「hibi」と「日々」。
+        </p>
+      </div>
+      <div class="ja-hero-scroll">
+        <span class="ja-hero-scroll-line"></span>
+        <span class="ja-hero-scroll-label">scroll</span>
+      </div>
+    </header>
+
+    <!-- ========= Breadcrumb ========= -->
+    <div class="ja-breadcrumb">
+      <span class="ja-breadcrumb-item"><a href="index.html">top</a></span>
+      <span class="ja-breadcrumb-sep">—</span>
+      <span class="ja-breadcrumb-item"><a href="journal.html">journal</a></span>
+      <span class="ja-breadcrumb-sep">—</span>
+      <span class="ja-breadcrumb-item current">hibiができるまでのこと</span>
+    </div>
+
+    <!-- ========= Main ========= -->
+    <main class="ja-main">
+
+      <!-- ---- 読書進捗バー ---- -->
+      <div class="ja-progress-bar" id="jaProgressBar">
+        <div class="ja-progress-fill" id="jaProgressFill"></div>
+      </div>
+
+      <!-- ---- レイアウト: サイドバー + 本文 ---- -->
+      <div class="ja-layout">
+
+        <!-- サイドバー（目次・シェア） -->
+        <aside class="ja-sidebar" id="jaSidebar">
+          <div class="ja-sidebar-inner" id="jaSidebarInner">
+
+            <nav class="ja-toc" aria-label="目次">
+              <p class="ja-toc-label">contents</p>
+              <ol class="ja-toc-list" id="jaTocList">
+                <!-- JSで生成 -->
+              </ol>
+            </nav>
+
+            <div class="ja-share">
+              <p class="ja-share-label">share</p>
+              <div class="ja-share-btns">
+                <button class="ja-share-btn" id="jaShareCopy" aria-label="URLをコピー">
+                  <span class="ja-share-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                  </span>
+                  <span class="ja-share-text">copy link</span>
+                </button>
+                <button class="ja-share-btn" id="jaShareX" aria-label="X(Twitter)でシェア">
+                  <span class="ja-share-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.743l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </span>
+                  <span class="ja-share-text">post</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- 本文 -->
+        <article class="ja-article" id="jaArticle">
+
+          <section class="ja-section fade-up" id="section-1" data-heading="はじまりは、曖昧な感覚から">
+            <h2 class="ja-heading">はじまりは、曖昧な感覚から</h2>
+            <p class="ja-body">
+              最初から「hibi」という名前があったわけではありませんでした。
+            </p>
+            <p class="ja-body">
+              ただ、日々の中でふと感じる、<br />
+              言葉にできない小さな違和感のようなもの。<br />
+              気づけば、呼吸が浅くなっていること。<br />
+              毎日が急ぎ足で過ぎていくこと。
+            </p>
+            <p class="ja-body">
+              ほんの少し立ち止まれたら、<br />
+              自分を大切にできたなら、<br />
+              もう少しやさしく過ごせるのはないか。<br />
+            </p>
+            <p class="ja-body">
+              そんな曖昧な感覚が、<br />
+              「hibi」のはじまりでした。
+            </p>
+          </section>
+
+          <section class="ja-section fade-up" id="section-2" data-heading="すぐには、かたちにならなかった">
+            <h2 class="ja-heading">すぐには、かたちにならなかった</h2>
+            <p class="ja-body">
+              「何かを作りたい」と思っても、<br />
+              それが何なのかは、すぐには分かりませんでした。
+            </p>
+            <p class="ja-body">
+              ノートに言葉を書き留めてみたり、<br />
+              日常の中にある「ほっとする瞬間」を探してみたり。
+            </p>
+            <p class="ja-body">
+              うまく言葉にできない時間の方が、<br />
+              ずっと長かったように思います。
+            </p>
+          </section>
+
+          <section class="ja-section fade-up" id="section-3" data-heading="それでも、手放さなかったこと">
+            <h2 class="ja-heading">それでも、手放さなかったこと</h2>
+            <p class="ja-body">
+              はっきりとした答えはなくても、<br />
+              ひとつだけ、手放したくない思いがありました。
+            </p>
+            <p class="ja-body">
+              それは、「日々をていねいに。そのままの自分を受け入れる。」という気持ち。
+            </p>
+            <p class="ja-body">
+              特別も、正解もいらない。<br />
+              ただ、何気ない日常の中で、<br />
+              少しだけ余白をつくること。<br />
+              そのための「何か」をつくりたいと思っていました。
+            </p>
+          </section>
+
+          <section class="ja-section fade-up" id="section-4" data-heading="「hibi」という名前">
+            <h2 class="ja-heading">「hibi」という名前</h2>
+            <p class="ja-body">
+              hibi<br />
+              ひび<br />
+              日々
+            </p>
+            <p class="ja-body">
+              ありふれた、繰り返される時間。<br />
+              けれど、同じように見えて<br />
+              まったく同じ日はひとつもない。
+            </p>
+            <p class="ja-body">
+              うまくいく日も、そうでない日も、<br>
+              どちらも同じように流れていく。
+            </p>
+            <p class="ja-body">
+              そのすべてを、やさしくすくい上げるような名前、<br>
+              それが「hibi」でした。
+            </p>
+          </section>
+          <section class="ja-section fade-up" id="section-5" data-heading="「hibi」より">
+            <h2 class="ja-heading">「hibi」より</h2>
+            <p class="ja-body">
+              もし、あなたの日々の中に、<br />
+              ほんの少しでも余白のような瞬間が生まれたなら、<br />
+              hibiにとって、とてもうれしいことです。
+            </p>
+            <p class="ja-body">
+              特別じゃなくていい。<br />
+              きれいじゃなくていい。<br />
+              ただ、今日しかない日々を、あなたのままで。
+            </p>
+            <p class="ja-body">
+              そのそばにhibiがあれたら、と思っています。
+            </p>
+            <p class="ja-body">
+              今日もおつかれさまでした。
+            </p>
+          </section>
+
+          <!-- 記事タグ -->
+          <div class="ja-tags fade-up">
+          <a href="journal.html?filter=習慣" class="ja-tag-item"># 習慣</a>
+          </div>
+
+          <!-- 著者 -->
+          <div class="ja-author fade-up">
+            <div class="ja-author-line"></div>
+            <div class="ja-author-body">
+              <p class="ja-author-label">written by</p>
+              <p class="ja-author-name">hibi editorial</p>
+              <p class="ja-author-bio">
+                hibiのジャーナルは、日々の小さな気づきと習慣について書き続けています。
+                毎月すこしづつ、お届けします。
+              </p>
+            </div>
+          </div>
+        </article>
+      </div><!-- /.ja-layout -->
+
+      <!-- ---- 関連記事 ---- -->
+      <section class="ja-related fade-up">
+        <div class="ja-related-inner">
+          <div class="ja-related-header">
+            <span class="tag">related</span>
+            <h2 class="section-title">( 関連する記事 )</h2>
+          </div>
+          <div class="ja-related-grid">
+            <article class="ja-related-card fade-up">
+              <a href="journal-article3.html" class="ja-related-card-link">
+                <div class="ja-related-card-img-wrap">
+                  <img src="img/journal3.webp" alt="呼吸が深くなるリラックスタイムを" class="ja-related-card-img" />
+                  <div class="ja-related-card-overlay"></div>
+                </div>
+                <div class="ja-related-card-body">
+                  <span class="jl-cat">習慣</span>
+                  <h3 class="ja-related-card-title">呼吸が深くなるリラックスタイムを</h3>
+                  <p class="ja-related-card-desc">無意識にしている呼吸を整えるために。1日の終わりに、ほんの少しだけ自分に向き合う時間のつくり方。</p>
+                  <div class="ja-related-card-footer">
+                    <span class="jl-date">2026.03.04</span>
+                    <span class="ja-arrow-sm">→</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <article class="ja-related-card fade-up">
+              <a href="journal-article2.html" class="ja-related-card-link">
+                <div class="ja-related-card-img-wrap">
+                  <img src="img/journal2.webp" alt="今日をとじられない日もある" class="ja-related-card-img" />
+                  <div class="ja-related-card-overlay"></div>
+                </div>
+                <div class="ja-related-card-body">
+                  <span class="jl-cat">こころ</span>
+                  <h3 class="ja-related-card-title">今日をとじられない日もある</h3>
+                  <p class="ja-related-card-desc">考えすぎてしまう日も、気持ちが追いつかない日も。</p>
+                  <div class="ja-related-card-footer">
+                    <span class="jl-date">2026.02.15</span>
+                    <span class="ja-arrow-sm">→</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="section-footer fade-up">
+            <a href="journal.html" class="btn-fill">すべてのジャーナルへ →</a>
+          </div>
+        </div>
+      </section>
+
+<!-- ---- ニュースレター帯 ---- -->
+      <section class="jl-newsletter fade-up">
+        <div class="jl-newsletter-inner">
+          <div class="jl-newsletter-text">
+            <p class="jl-newsletter-eyebrow">newsletter</p>
+            <h2 class="jl-newsletter-title">
+              新しい記事を、<br />メールで受け取る。
+            </h2>
+            <p class="jl-newsletter-desc">
+              hibiのジャーナル更新、プロダクト情報を<br />
+              ひと月にいちど、静かにお届けします。
+            </p>
+          </div>
+          <form class="jl-newsletter-form" id="jlNewsletterForm" novalidate>
+            <div class="jl-newsletter-field-wrap">
+              <input
+                type="email"
+                class="jl-newsletter-input"
+                id="jlEmailInput"
+                placeholder="your@email.com"
+                autocomplete="email"
+                aria-label="メールアドレス"
+              />
+              <button type="submit" class="jl-newsletter-btn" id="jlNewsletterBtn">
+                <span class="jl-newsletter-btn-label">登録する</span>
+                <span class="jl-newsletter-btn-arrow">→</span>
+              </button>
+            </div>
+            <p class="jl-newsletter-note">プライバシーポリシーに同意の上、ご登録ください。</p>
+            <p class="jl-newsletter-msg" id="jlNewsletterMsg" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========= Toast ========= -->
+    <div class="ja-toast" id="jaToast">URLをコピーしました。</div>
+
+    <!-- ========= Footer ========= -->
+    <footer class="footer" id="footer">
+      <div class="footer-top">
+        <div class="footer-logo-col">
+          <a href="index.html" class="footer-logo">( hibi )</a>
+          <p class="footer-tagline">今日を整える、やさしい習慣。</p>
+        </div>
+        <nav class="footer-nav" aria-label="サイトマップ">
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">top</p>
+            <ul>
+              <li><a href="index.html#about">about</a></li>
+              <li><a href="products.html">product</a></li>
+              <li><a href="journal.html">journal</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">membership</p>
+            <ul>
+              <li><a href="membership.html">hibi+</a></li>
+              <li><a href="login.html">login</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <p class="footer-nav-label">company</p>
+            <ul>
+              <li><a href="#info">info</a></li>
+              <li><a href="#privacypolicy">privacypolicy</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 hibi. All rights reserved.</p>
+        <button class="footer-totop" id="toTop" aria-label="ページトップへ">top ↑</button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
